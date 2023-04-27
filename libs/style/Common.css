@@ -1,0 +1,88 @@
+        .spanDesc
+        {
+            color: red;
+        }
+        .spanDesc1
+        {
+            color: blue;
+        }
+
+        .dlSite
+        {
+            margin: 0 10px;
+        }
+        .dlSite dt.dtSite
+        {
+            background-color: #FF6600;
+            color: #FFFFFF;
+            padding: 0 8px;
+            height: 36px;
+            line-height: 36px;
+            display: block;
+            cursor: pointer;
+            border-bottom: solid 1px #999;
+        }
+        .dlSite dt.dtSiteOver
+        {
+            background-color: #FF8C40;
+        }
+        .dlSite dd.ddSite
+        {
+            margin: 0px;
+        }
+
+        ul.divSiteLink
+        {
+            margin: 0;
+            padding: 0;
+        }
+        ul.ulSiteLink li
+        {
+            padding: 0;
+            width: 100%;
+        }
+
+		
+		
+        ul.divSiteLink li a, ul.divSiteLink li a:link, ul.divSiteLink li a:visited
+        {
+            text-decoration: none;
+            height: 36px;
+            line-height: 36px;
+            display: block;
+            background-color: #eaf0f2;
+            border-bottom: solid 1px #FF6600;
+            color: #555;
+        }
+		
+		ul.divSiteLink li.odd>a{
+            background-color: #E6DBDB;
+		}
+        ul.divSiteLink li a:hover
+        {
+            background-color: #d9e1e4;
+        }
+        a.aSiteLink
+        {
+            /*padding: 8px 5px 8px 0px;*/
+        }
+        a.aSiteChildLink
+        {
+            /*padding: 8px 5px 8px 0px;*/
+        }
+
+        span.spanSiteLink
+        {
+
+        }
+        span.spanParentSiteLink
+        {
+            /*padding: 5px 5px 5px 0px;*/
+            height: 36px;
+            line-height: 36px;
+            display: block;
+            background-color: #fffacd;
+            border-bottom: solid 1px #FF6600;
+        }
+
+		.txtContent{width:99%;height:100%;font-size:14px;}

@@ -1,0 +1,853 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!--cdn: https://www.jsdelivr.com/  https://www.bootcdn.cn/  -->
+    <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/underscore.js/1.9.0/underscore-min.js"></script>
+    <script src="https://cdn.bootcss.com/angular.js/1.7.0/angular.min.js"></script>
+    <script type="text/javascript" src="sudo.js"></script>
+    <script type="text/javascript" src="Bmob-2.2.5.min.js"></script>
+    <script type="text/javascript" src="BmobHelper.js"></script>
+    <style>
+    .row_scale {
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        vertical-align: middle;
+        margin: 1px;
+    }
+    .col {
+        display: inline-block;
+        margin: 1px;
+        outline: none;
+    }
+    .col, .point_answer{
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        vertical-align: middle;
+    }
+    .row_group_head {
+        margin-top: 6px;
+    }
+    .col_group_head {
+        margin-left: 6px;
+    }
+    .row_group {
+        margin-top: 3px;
+        border-top: 1px solid #7b7b7b;
+    }
+    .col_group {
+        margin-left: 3px;
+        border-left: 1px solid #7b7b7b;
+    }
+    .row_group_bottom {
+        border-bottom: 1px solid #7b7b7b;
+    }
+    .col_group_right {
+        border-right: 1px solid #7b7b7b;
+    }
+    .point_mark {
+        display: inline-block;
+        width: 13px;
+        height: 13px;
+        line-height: 13px;
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    .answer_default {
+        background: #fff;
+        color: #000;
+        font-size: 22px;
+    }
+    .answer_input {
+        background:#fff;
+        color: blue;
+        font-size: 22px;
+    }
+    .answer_selected {
+        background: #f3a731;
+        color: #fff
+    }
+    .answer_selected_same {
+        background: #f3a731;
+        color: #fff
+    }
+    .answer_selected_error {
+        background: #FD8FDD !important;
+        color: #fff !important;
+    }
+    .answer_selected_relate {
+        background: #ddf1fa;
+    }
+    .mark_default {
+        background: #fff;
+        color: #16b355;
+        font-size: 14px;
+    }
+    .mark_selected {
+        background: #f3a731;
+        color: #fff;
+    }
+    .mark_selected_relate {
+        background: #ddf1fa;
+    }
+    .mark_selected_same {
+        color: red;
+    }
+
+    .input_board {
+        clear: both;
+        margin-left: 44px;
+        background: #856e9e;
+        width: 381px;
+        height: 126px;
+    }
+    .input_board .col{
+        float: left;
+        margin-left: 1px;
+    }
+    .input_board .num {
+        width: 74px;
+        height: 40px;
+        line-height: 40px;
+        font-size: 24px;
+        font-weight: bold;
+    }
+    .input_board .operate {
+        width: 93px;
+        height: 40px;
+        line-height: 40px;
+    }
+    .input_board .default {
+        background: #6e4f90;
+        color: #fff;
+    }
+    .input_board .active {
+        background: #6e4f90;
+        color: #ff4343;
+    }
+    .input_board .disable {
+        background: #6e4f90;
+        color: #8E848D;
+    }
+    .input_num {
+        float: left;
+        margin-left: 38px;
+    }
+    .input_num_default {
+        color: #fff;
+    }
+    .input_num_lock {
+        color: #797979;
+    }
+    .num_mark {
+        float: left;
+        position: relative;
+        top: -14px;
+        left: 8px;
+    }
+    .num_mark_default {
+        color: #797979;
+    }
+    .num_mark_active {
+        color: #ff4343;
+    }
+
+    .btn {
+        display: inline-block;
+        font-weight: 400;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: middle;
+        border: 1px solid transparent;
+        padding: 0.375rem 0.75rem;
+        font-size: 1rem;
+        line-height: 1.5;
+        border-radius: 0.25rem;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    .btn-outline-primary {
+        color: #007bff;
+        background-color: transparent;
+        background-image: none;
+        border-color: #007bff;
+    }
+    .btn-outline-primary:hover {
+        color: #fff;
+        background-color: #007bff;
+        border-color: #007bff;
+    }
+    .btn-light {
+        color: #212529;
+        background-color: #f8f9fa;
+        border-color: #f8f9fa;
+    }
+    .btn-light:hover {
+        color: #212529;
+        background-color: #e2e6ea;
+        border-color: #dae0e5;
+    }
+    .badge {
+        display: inline-block;
+        padding: 0;
+        font-size: 70%;
+        border-radius: 1.25rem;
+    }
+    .badge-relate {
+        background-color: #879FF6;
+        color: #000;
+    }
+    .badge-lock {
+        background-color: #2AB978;
+        color: #000;
+    }
+    .badge-remove {
+        background-color: #FD8FDD;
+        color: #000;
+    }
+    .img-view {
+        display:-webkit-box ;
+        position: fixed;
+        top:0;
+        left:0;
+        height:100%;
+        width:100%;
+        z-index:999;
+        background: rgba(255, 255, 255,0.8);
+        overflow:auto;
+    }
+    .img-view img {
+        cursor: zoom-out;
+    }
+    </style>
+</head>
+<body id="ng-app" ng-app="bodyApp" style="background:#efefef;" ng-controller="mainCtrl">
+    <div style="float: left;">
+        <div id="sudoBoard" style="outline:none;" tabindex="1" on-keypress="input_num_by_keyboard($event)">
+            <div style="float: left;">
+                <div class="row_scale row_group_head"></div>
+                <div class="row" ng-repeat="row in rows track by $index" ng-class="{'row_group_head':$index!=0 && $index%3==0}">
+                    <div class="row_scale" ng-click="scale('r', $index)">R{{$index+1}}</div>
+                </div>
+            </div>
+            <div style="width: 440px;">
+                <div class="row">
+                    <div class="col" ng-repeat="cols in cols track by $index" ng-class="{'col_group_head':$index!=0 && $index%3==0}">
+                        <div class="col_scale" ng-click="scale('c', $index)">C{{$index+1}}</div>
+                    </div>
+                </div>
+                <div ng-repeat="point in pointList track by $index" style="display:inline-block"
+                    ng-class="{
+                        'row_group':point.x!=0 && point.x%3==0,
+                        'row_group_bottom': point.x%3==2 && point.x!=8,
+                        'col_group': point.y!=0 && point.y%3==0,
+                        'col_group_right':point.y%3==2 && point.y!=8}">
+                    <div ng-hide="point.isMark && !point.isPuzzle" class="col" ng-class="{'answer_default':point.isPuzzle,
+                        'answer_input':!point.isPuzzle,
+                        'answer_selected':point.selected,
+                        'answer_selected_same': point.isSelectedSame,
+                        'answer_selected_error': point.isError,
+                        'answer_selected_relate':point.isSelectedRelate}" ng-click="point_clicked($index)">
+                        {{point.text}}
+                    </div>
+                    <div ng-show="point.isMark && !point.isPuzzle" class="col" ng-click="point_clicked($index)">
+                        <div class="" ng-repeat="row in [1,2,3] track by $index" ng-class="{'col_mark_group': point.y%3==0}">
+                            <div class="point_mark col_mark mark_default" ng-repeat="cols in [1,2,3] track by $index"
+                                ng-class="{'col_mark_group':$index%3==0,
+                                    'mark_selected_same': selectedValue !=0 && selectedValue == point.markList[$parent.$index*3+$index],
+                                    'mark_selected':point.selected,
+                                    'mark_selected_relate':point.isSelectedRelate,
+                                    'badge badge-relate':point.markRelateList[$parent.$index*3+$index],
+                                    'badge badge-lock':point.markLockList[$parent.$index*3+$index],
+                                    'badge badge-remove':point.markRemoveList[$parent.$index*3+$index]}">
+                                {{point.markList[$parent.$index*3+$index]}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div ng-show="!isRun" style="position: absolute; top:50px; left:52px; background: #6e4f90; width:385px; height:385px;">
+            
+        </div>
+        <div class="input_board" ng-show="isShowInput" style="margin-top:10px;">
+            <div class="row">
+                <div class="col num default" ng-repeat="num in [1,2,3,4,5] track by $index" ng-click="input_num(isInputLock && !input_num_lock[$index] ? 0:num)">
+                    <span class="input_num"
+                        ng-class="{
+                            'input_num_default': !isInputLock || input_num_lock[$index],
+                            'input_num_lock': isInputLock && !input_num_lock[$index]
+                        }">{{num}}</span>
+                    <span class="num_mark"
+                        ng-class="{
+                            'num_mark_default': input_num_flag[$index],
+                            'num_mark_active': !input_num_flag[$index]
+                        }" ng-show="isMarkPoint">.</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col num default" ng-repeat="num in [6,7,8,9] track by $index" ng-click="input_num((isInputLock && !input_num_lock[$index+5]) ? -1 : num)">
+                    <span class="input_num"
+                        ng-class="{
+                            'input_num_default': !isInputLock || input_num_lock[$index+5],
+                            'input_num_lock': isInputLock && !input_num_lock[$index+5]
+                        }">{{num}}</span>
+                    <span class="num_mark"
+                        ng-class="{
+                            'num_mark_default': input_num_flag[$index+5],
+                            'num_mark_active': !input_num_flag[$index+5]
+                        }" ng-show="isMarkPoint">.</span>
+                </div>
+                <div class="col num" ng-class="{'default':!isInputLock, 'active':isInputLock}" ng-click="input_lock()"><i style="margin-top:8px;" class="fa fa-lock"></i></div>
+            </div>
+            <div class="row">
+                <div class="col operate" ng-class="{'default':history.length>0, 'disable':history.length==0}" ng-click="input_undo()"><i class="fa fa-undo"></i> 撤销</div>
+                <div class="col operate" ng-class="{'default':repeat.length>0, 'disable':repeat.length==0}" ng-click="input_repeat()"><i class="fa fa-repeat"></i> 恢复</div>
+                <div class="col operate default" ng-click="input_clear()"><i class="fa fa-trash"></i> 清除</div>
+                <div class="col operate" ng-class="{'default':!isMarkPoint, 'active':isMarkPoint}" ng-click="input_mark()"><i class="fa fa-edit"></i> 标记</div>
+            </div>
+        </div>
+    </div>
+    <div style="float: left; margin:30px 20px;">
+        <div>
+            <select style="width: 420px;" ng-model="selPuzzle" ng-options="x.puzzle for x in puzzles" ng-change="onChangeSelPuzzle()">
+            </select><br/>
+            <textarea style="margin: 0px; width: 420px; height: 138px;" ng-model="puzzle.puzzle"></textarea>
+        </div>
+        <div style="margin:10px 0;">
+            <div id="timer" style="height:40px; font-size:26px;">{{timer}}</div>
+            <a href="javascript:void(0)" class="btn btn-outline-primary" ng-click="loadPuzzle()">Load Puzzle</a>
+            <a href="javascript:void(0)" class="btn btn-outline-primary" ng-click="pause()">{{wordOperate}}</a>
+            <div style="display:inline-block; float:right;"><input type="text" ng-model="puzzle.name" /></div>
+            <p/>
+            <a href="javascript:void(0)" class="btn btn-outline-primary" ng-click="getAnswer(true)">Get Answer</a>
+            <a href="javascript:void(0)" class="btn btn-outline-primary" ng-click="export()">Export</a>
+            <a href="javascript:void(0)" class="btn btn-outline-primary" ng-click="verify()">Verify</a>
+            <a href="javascript:void(0)" class="btn btn-outline-primary" ng-click="saveToBmob()">Save to Bmob</a>
+        </div>
+        <div>
+            <textarea style="margin: 0px; width: 420px; height: 138px;" ng-model="answer"></textarea>
+        </div>
+        <div style="margin:10px 0;">
+            <a href="javascript:void(0)" class="btn btn-outline-primary" ng-click="markAll()">Mark All</a>
+        </div>
+        <div style="margin:10px 0;">
+            <a href="javascript:void(0)" class="btn btn-outline-primary" ng-click="next_step()">Next Step</a>
+        </div>
+        <div style="height: 142px; overflow:auto;">
+            <ul>
+                <li ng-repeat="record in promptMsg track by $index" ng-click="show_pic(record.type, record.hasImg)">{{record.msg}}</li>
+            </ul>
+        </div>
+        <div class="img-view" ng-hide="!img_view">
+            <img ng-src="./images/{{img_view_type}}.png" ng-click="img_view=false;"/>
+        </div>
+    </div>
+
+</body>
+<script type="text/javascript">
+var bodyApp = angular.module("bodyApp", []);
+//fix a标签的href实际为” unsafe:javascript: ;”. 
+bodyApp.config(function($compileProvider){
+    //注:有些版本的angularjs为$compileProvider.urlSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|javascript):/);,两种都试一下可以即可
+    $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|javascript):/);
+});
+bodyApp.controller("mainCtrl", ["$scope", "$document", "$interval", "BmobService", function($scope, $document, $interval, BmobService) {
+    $scope.rows = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+    $scope.cols = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+    $scope.sudoku = [];
+    $scope.pointList = [];
+    $scope.isMarkPoint = false;
+    $scope.isInputLock = false;
+    $scope.isShowInput = false;
+    $scope.selectedIndex = -1;
+    $scope.input_num_flag = [];
+    $scope.input_num_lock = [];
+    var operate = {input_num: 1, mark_num: 2, clear: 3}
+    $scope.history = [];
+    $scope.repeat = [];
+    $scope.img_view = false;
+    $scope.img_view_type = "none";
+    $scope.isRun = false;
+    $scope.timer = "00:00:00";
+    
+    function stringToArray(str) {
+        var arr = [];
+        _.forEach(str, function(n) {
+            arr.push(parseInt(n));
+        });
+        return arr;
+    };
+    function initSudo(puzzle) {
+        $scope.pointList = initPoint(stringToArray(puzzle));
+        $scope.isMarkPoint = false;
+        $scope.isInputLock = true;
+        $scope.isShowInput = false;
+        $scope.selectedIndex = -1;
+        $scope.promptMsg = [];
+        $scope.history = [];
+        $scope.repeat = [];
+        $scope.isRun = false;
+        x=0, a=0, b=0;
+        $interval.cancel(t1);
+        $scope.timer = "00:00:00";
+    };
+    function getIndexByAnswer(x, y) {
+        return x * 9 + y;
+    }
+    function getCurrentSudo() {
+        var arr = [];
+        _.forEach($scope.pointList, function(p) {
+            arr.push(p.value);
+        });
+        return arr;
+    }
+    
+    var x=0, a=0, b=0, seconds='00', minus='00', hour='00', t1;    
+    function beginS(){//计算秒
+        x++;
+        if(x<10){
+            seconds = '0' + x;
+        }else if(x>=10&&x<=59){
+            seconds = x;
+        }else if(x>59){
+            seconds = '00';
+            x = 0;
+            a++;
+        }
+ 
+        if(a<10){
+            minus = '0' + a;
+        }else if(a>=10&&a<=59){
+            minus = a;
+        }else if(a>59){
+            minus = '00';
+            a = 0;
+            b++;
+        }
+ 
+        if(b<10){
+            hour = '0' + b;
+        }else if(b>=10&&b<=59){
+            hour = b;
+        }
+ 
+        $scope.timer = hour+":"+minus+":"+seconds;
+    }
+    $scope.start = function() {
+        $scope.isRun = true;
+        $scope.wordOperate = "Pause"
+        t1 = $interval(beginS,1000);
+    };
+    $scope.pause = function() {
+        if ($scope.isRun) {
+            $scope.isRun = false;
+            $interval.cancel(t1);
+            $scope.wordOperate = "Continue"
+        } else {            
+            $scope.start();
+        }
+    };
+    
+    $scope.getAnswer = function(isInput) {
+        var pointList = deepClone(_.filter($scope.pointList, function(point) {
+            return point.value == 0;
+        }));
+        var p = pointList.pop();
+        var result = tryInsert(p, pointList, getCurrentSudo());
+        if (result[0]) {
+            $scope.answer = result[1].toString().replace(/,/g, "");
+            if (isInput) {
+                _.each(result[1], function(n, i) {
+                    //console.log(n + " i:" + i);
+                    var point = $scope.pointList[i];
+                    point.value = n;
+                    point.init();
+                });
+            }
+            $scope.verify();
+        } else {
+            $scope.answer = "Solving failure";
+        }
+    }
+    $scope.loadPuzzle = function() {
+        initSudo($scope.puzzle.puzzle);
+        $scope.start();
+        $scope.getAnswer(false);
+    };
+    $scope.onChangeSelPuzzle = function() {
+        $scope.puzzle = _.clone($scope.selPuzzle);
+        $scope.loadPuzzle();
+    }
+    
+    $scope.export = function() {
+        $scope.answer = getCurrentSudo().toString().replace(/,/g, "");
+    }
+    $scope.verify = function() {
+        if (verify(getCurrentSudo())) {
+            $interval.cancel(t1);
+            $scope.promptMsg.unshift({type:"verify", msg:"Success", hasImg:false});
+        } else {
+            $scope.promptMsg.unshift({type:"verify", msg:"Faile", hasImg:false});
+        }
+    }
+    $scope.scale = function(type, index) {
+        console.log("type:" + type + " index:" + index);
+    };
+    function point_clicked(index) {
+        $scope.selectedIndex = index;
+        $scope.isShowInput = !$scope.pointList[index].isPuzzle;
+        var point = $scope.pointList[index];
+        console.log(point.toString());
+        $scope.selectedValue = point.value;
+        _.forEach($scope.pointList, function(p) {
+            p.selected = p.index == index;
+            var isRelate = (p.x == point.x || p.y == point.y || p.block == point.block);
+            p.isSelectedRelate = !p.selected && point.value == 0 && isRelate;
+            p.isSelectedSame = !isRelate && p.value != 0 && p.value == point.value;
+            if (p.index != index) {
+                var isError = isRelate && p.value != 0 && p.value == point.value;
+                if (isError) {
+                    point.isError = true;
+                }
+                p.isError = p.isError || isError
+            }
+        });
+        $scope.input_num_flag = [];
+        $scope.input_num_lock = [];
+        for (var i = 1; i < 10; i++) {
+            $scope.input_num_flag.push(point.markList[i-1] == "")
+            $scope.input_num_lock.push(_.contains(point.available, i))
+        }
+        //console.log(" index:" + index);
+    }
+    $scope.point_clicked = function(index) {
+        point_clicked(index);
+    };
+    $scope.input_lock = function() {
+        $scope.isInputLock = !$scope.isInputLock;
+        point_clicked($scope.selectedIndex);
+    }
+    $scope.input_undo = function() {
+        console.log($scope.history);
+        if ($scope.history.length > 0) {
+            var history = $scope.history.pop();
+            var index = history.point_org.index;
+
+            var repeat = {};
+            repeat["operate"] = history.operate;
+            repeat["num"] = history.num;
+            repeat["point_org"] = deepClone($scope.pointList[index]);
+            $scope.repeat.push(repeat);
+
+            $scope.pointList[index] = history.point_org;
+            point_clicked(index);
+
+        }
+    };
+    $scope.input_repeat = function() {
+        if ($scope.repeat.length > 0) {
+            var repeat = $scope.repeat.pop();
+            var index = repeat.point_org.index;
+
+            var history = {};
+            history["operate"] = repeat.operate;
+            history["num"] = repeat.num;
+            history["point_org"] = deepClone($scope.pointList[index]);
+            $scope.history.push(history);
+
+            $scope.pointList[index] = repeat.point_org;
+            point_clicked(index);
+
+        }
+    };
+    $scope.input_clear = function() {
+        if ($scope.selectedIndex < 0) {
+            return false;
+        }
+        var point = $scope.pointList[$scope.selectedIndex];
+        if (!point.isPuzzle) {
+            var history = {};
+            history["operate"] = operate.mark_num;
+            history["num"] = 0;
+            history["point_org"] = deepClone(point);
+            $scope.history.push(history);
+
+            point.value = 0;
+            point.init();
+            $scope.pointList = resetAvailable($scope.pointList, getCurrentSudo());
+            point_clicked($scope.selectedIndex);
+        }
+    }
+    $scope.input_mark = function() {
+        $scope.isMarkPoint = !$scope.isMarkPoint;
+    }
+    $scope.input_num = function(num) {
+        if ($scope.selectedIndex < 0 || num < 1) {
+            return false;
+        }
+        var point = $scope.pointList[$scope.selectedIndex];
+        if (point.isPuzzle) {
+            return false;
+        }
+        var history = {};
+        if ($scope.isMarkPoint) {
+            if (point.value == 0) {
+                history["operate"] = operate.mark_num;
+                history["num"] = num;
+                history["point_org"] = deepClone(point);
+
+                point.markList[num-1] = point.markList[num-1] == "" ? num : "";
+                point.markRelateList[num-1] = false;
+                point.markLockList[num-1] = false;
+                point.markRemoveList[num-1] = false;
+                point.isMark = true;
+            }
+        } else {
+            history["operate"] = operate.input_num;
+            history["num"] = num;
+            history["point_org"] = deepClone(point);
+
+            point.value = num;
+            point.init();
+            point.isError = num != $scope.answer[$scope.selectedIndex]
+            var result = resetAvailableMark(point, $scope.pointList);
+            result = resetAvailable($scope.pointList, getCurrentSudo());
+            if (result == null) {
+                $scope.verify();
+            } else {
+                $scope.pointList = result;
+            }
+        }
+        point_clicked($scope.selectedIndex);
+        if (_.keys(history).length > 0) {
+            $scope.history.push(history);
+        }
+    }
+    $scope.input_num_by_keyboard = function(event) {
+        //console.log(event.keyCode);
+        var key_num = {49:1, 50:2, 51:3, 52:4, 53:5, 54:6, 55:7, 56:8, 57:9};
+        if (49 <= event.keyCode <= 57) {
+            $scope.input_num(key_num[event.keyCode]);
+            $scope.$apply();
+        }
+    };
+    $scope.markAll = function() {
+        _.each($scope.pointList, function(p) {
+            if (p.value == 0) {
+                p.isMark = true;
+                p.markList = ["","","","","","","","",""];
+                _.each(p.available, function(num) {
+                    p.markList[num-1] = num;
+                });
+            }
+        });
+    }
+    $scope.next_step = function() {
+        $scope.prompt_do();
+        $scope.prompt();
+    }
+    $scope.prompt = function() {
+        var hasPrompt = false;
+        _.each($scope.pointList, function(p) {
+            if (p.value == 0) {
+                p.isMark = true;
+                p.markList = ["","","","","","","","",""];
+                _.each(p.available, function(num) {
+                    p.markList[num-1] = num;
+                });
+                if (p.available.length == 1) {
+                    p.markLockList[p.available[0]-1] = true;
+                    hasPrompt = true;
+                    $scope.promptMsg.unshift({type:"naked_single", msg:"Naked Single/Forced Digit", hasImg:false});
+                }
+            }
+        });
+        if (!hasPrompt) {
+            hasPrompt = hidden_single($scope.pointList);
+            if (hasPrompt) {
+                $scope.promptMsg.unshift({type:"hidden_single", msg:"Hidden Single", hasImg:false});
+            }
+        }
+        if (!hasPrompt) {
+            hasPrompt = locked_candidate($scope.pointList);
+            if (hasPrompt) {
+                $scope.promptMsg.unshift({type:"locked_candidate", msg:"Locked Candidate", hasImg:false});
+            }
+        }
+        if (!hasPrompt) {
+            hasPrompt = naked_pair($scope.pointList);
+            if (hasPrompt) {
+                $scope.promptMsg.unshift({type:"naked_pair", msg:"Naked Pair", hasImg:false});
+            }
+        }
+        if (!hasPrompt) {
+            hasPrompt = naked_triple($scope.pointList);
+            if (hasPrompt) {
+                $scope.promptMsg.unshift({type:"naked_triple", msg:"Naked Triple", hasImg:false});
+            }
+        }
+        if (!hasPrompt) {
+            hasPrompt = xwing($scope.pointList);
+            if (hasPrompt) {
+                $scope.promptMsg.unshift({type:"xwing", msg:"X-Wing", hasImg:true});
+            }
+        }
+        if (!hasPrompt) {
+            hasPrompt = ywing($scope.pointList);
+            if (hasPrompt) {
+                $scope.promptMsg.unshift({type:"ywing", msg:"Y-Wing", hasImg:true});
+                return;
+            }
+        }
+        if (!hasPrompt) {
+            hasPrompt = xywing($scope.pointList);
+            if (hasPrompt) {
+                $scope.promptMsg.unshift({type:"xywing", msg:"XY-Wing", hasImg:true});
+                return;
+            }
+        }
+        if (!hasPrompt) {
+            hasPrompt = unique_rectangle($scope.pointList);
+            if (hasPrompt) {
+                $scope.promptMsg.unshift({type:"ur", msg:"Unique Rectangle(UR)", hasImg:true});
+            }
+        }
+        if (!hasPrompt) {
+            hasPrompt = unique_rectangle2($scope.pointList);
+            if (hasPrompt) {
+                $scope.promptMsg.unshift({type:"ur2", msg:"Unique Rectangle2(UR2)", hasImg:false});
+            }
+        }
+        if (!hasPrompt) {
+            hasPrompt = single_chain($scope.pointList);
+            if (hasPrompt) {
+                $scope.promptMsg.unshift({type:"single_chain", msg:"Single Chain", hasImg:true});
+            }
+        }
+        if (!hasPrompt) {
+            hasPrompt = xy_chain($scope.pointList);
+            if (hasPrompt) {
+                $scope.promptMsg.unshift({type:"xy_chain", msg:"XY Chain", hasImg:true});
+            }
+        }
+    }
+    $scope.prompt_do = function() {
+        _.each($scope.pointList, function(p) {
+            _.each(p.markRemoveList, function(isRemove, n) {
+                if (isRemove) {
+                    p.available = _.filter(p.available, function(num) {
+                        return num != n+1;
+                    })
+                }
+            });
+            for (var i = 0; i < 9; i++) {
+                p.markList[i] = _.contains(p.available, i+1) ? i+1 : "";
+            }
+            p.markRelateList = [false,false,false,false,false,false,false,false,false];
+            p.markLockList = [false,false,false,false,false,false,false,false,false];
+            p.markRemoveList = [false,false,false,false,false,false,false,false,false];
+            if (p.available.length == 1) {
+                p.isMark = false;
+                $scope.selectedIndex = p.index;
+                $scope.isMarkPoint = false;
+                $scope.input_num(p.available[0])
+            }
+        });
+    }
+    $scope.show_pic = function(type, hasImg) {
+        if (hasImg) {
+            $scope.img_view = true;
+            $scope.img_view_type = type;
+        }
+    };
+    $scope.saveToBmob = function() {
+        $scope.export();
+        var puzzle = {
+            name: $scope.puzzle.name,
+            puzzle: $scope.answer,
+            status: 'E'
+        };
+        if ($scope.puzzle.objectId) {
+            var isSame = true;
+            _.each($scope.selPuzzle.puzzle, function(char, i) {
+                if (char !== "0" && char !== puzzle.puzzle.charAt(i)) {
+                    isSame = false;
+                }
+            });
+            console.log('isSame:',isSame);
+            if (isSame)　puzzle.id = $scope.puzzle.objectId;
+        }
+        BmobService.savePuzzle(puzzle);
+    }
+    
+    if (navigator.onLine) {
+        var promise = BmobService.getPuzzles();
+        promise.then(function(res){
+            $scope.puzzles = []
+            if (res && res.length>0) {
+                $scope.puzzles = res
+            } else {
+                $scope.puzzles = [{
+                    puzzle: "020137568050468192618592734060070809100080406080040203040710385800054921501820647"
+                }, {
+                    puzzle: "004615083005039041003084500408027100050846032000001408500463897946178325007002614"
+                }];
+            }
+            $scope.selPuzzle = $scope.puzzles[0];
+            $scope.puzzle = _.clone($scope.selPuzzle)
+            $scope.loadPuzzle();
+        });
+    } else {
+        $scope.puzzles = [{
+            puzzle: "020137568050468192618592734060070809100080406080040203040710385800054921501820647"
+        }, {
+            puzzle: "004615083005039041003084500408027100050846032000001408500463897946178325007002614"
+        }];
+        $scope.selPuzzle = $scope.puzzles[0];
+        $scope.puzzle = _.clone($scope.selPuzzle)
+        $scope.loadPuzzle();
+    }
+}]);
+bodyApp.directive("onKeypress", function() {
+    return {
+        scope: {
+            handler: "&onKeypress"
+        },
+        link: function(scope, element) {
+            element.bind("keypress", function(e) {
+                scope.handler({$event: e});
+            })
+        }
+    }
+});
+bodyApp.service("BmobService", [function() {
+    var bmobHelper = new BmobHelper();
+    
+    this.getPuzzles = function() {
+        return bmobHelper.getRecords({
+            search: {
+                queries: [{
+                    criteria: "status",
+                    condition: "==",
+                    value: "E",
+                }],
+                orders: ["-updatedAt"],
+                limit: 10,
+            }
+        });
+    }
+
+    this.savePuzzle = function(puzzle) {
+        return bmobHelper.saveRecord({
+            record: puzzle,
+        });
+    }
+}]);
+</script>
+</html>

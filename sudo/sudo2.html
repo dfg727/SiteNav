@@ -1,0 +1,470 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+    <title>Sudo</title>
+    <script src="https://cdn.bootcss.com/angular.js/1.7.0/angular.min.js"></script>
+    <style>
+    .hidden{display: none !important;}
+    .fn-body>table {}
+    .fn-body>table>tbody>tr>th {width:40px; height:40px;}
+    .fn-body>table>tbody>tr>td {width:40px; height:40px; text-align:center; font-size:22px;}
+    .fn-body .col-h {}
+    .fn-body .col-1 {
+        border-right: #999 1px solid;
+        border-left: #443 2px solid;
+    }
+    .fn-body .col-2, 
+    .fn-body .col-4, 
+    .fn-body .col-5, 
+    .fn-body .col-7, 
+    .fn-body .col-8 {
+        border-right: #999 1px solid;
+    }
+    .fn-body .col-3, .fn-body .col-6 {
+        border-right: #443 2px solid;
+    }
+    .fn-body .col-9 {
+        border-right: #443 2px solid;
+    }
+    .fn-body .row-1 {
+        border-top: #443 2px solid;
+        border-bottom: #999 1px solid;
+    }
+    .fn-body .row-2,
+    .fn-body .row-4,
+    .fn-body .row-5,
+    .fn-body .row-7,
+    .fn-body .row-8
+    {
+        border-bottom: #999 1px solid;
+    }
+    .fn-body .row-3, .fn-body .row-6 {
+        border-bottom: #443 2px solid;
+    }
+    .fn-body .row-9 {
+        border-bottom: #443 2px solid;
+    }
+    
+    .point-mark {width: 40px; height:40px;}
+    .point-mark td {font-size:12px; color:#999; line-height:13px;}
+    
+    
+    .badge {
+        padding: 0;
+        font-size: 70%;
+        border-radius: 1.25rem;
+    }
+    .badge-relate {
+        background-color: #879FF6;
+        color: #fff !important;
+    }
+    .badge-lock {
+        background-color: #2AB978;
+        color: #fff !important;
+    }
+    .badge-remove {
+        background-color: #FD8FDD;
+        color: #fff !important;
+    }
+    
+    .fn-sudo-num, .fn-sudo-action{margin: 20px 0 0 42px;}
+    ul.input-num, ul.input-mark {padding:0; margin: 0; height: 40px;}
+    ul.input-num>li, ul.input-mark>li {
+        float: left; 
+        list-style: none; 
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        text-align: center;
+        margin-left: 1px;
+        cursor: pointer;
+        font-size: 22px;
+    }
+    ul.input-num>li {color: #8787e2;}
+    ul.input-mark>li {color: #98989c;}
+    .tip-mark{
+        position: relative;
+        top: 3px;
+        left: -6px;
+        float: right;
+        background-color: red;
+        width: 5px;
+        height: 5px;
+        border-radius: 5px;
+    }
+    
+    .action-cancel, .action-clear, .action-mark, .action-tips {
+        width: 45px;
+        display: inline-block;
+        margin: 0 18px;
+        font-size: 14px;
+        text-align: center;
+        cursor: pointer;
+    }
+    .action-img {width: 32px;}
+    .tip-action {
+        position: relative; top:0px; left:-6px;
+        display:inline-block;
+        float: right;
+        border: 1px solid #443;
+        border-radius: 8px;
+        width: 20px;
+        padding: 2px 4px;
+        font-size: 10px;
+    }
+    .on{background-color: #7171f1; color: #fff;}
+    </style>
+</head>
+<body id="ng-app" ng-app="bodyApp" ng-controller="mainCtrl">
+
+<div class="fn-sudo">
+    <div class="fn-body" id="main">
+        <table border="0" cellspacing="0" cellpadding="0">
+            <tbody>
+            <tr>
+                <th class="col-h"> </th>
+                <th>1</th>
+                <th>2</th>
+                <th>3</th>
+                <th>4</th>
+                <th>5</th>
+                <th>6</th>
+                <th>7</th>
+                <th>8</th>
+                <th>9</th>
+            </tr>
+            <tr>
+                <td class="col-h">A</td>
+                <td class="col-1 row-1">
+                    <table class="point-mark" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td class=" badge badge-lock" id="mark_A1_1">1</td>
+                            <td>2</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>5</td>
+                            <td>6</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>8</td>
+                            <td class=" badge badge-relate" id="mark_A1_9">9</td>
+                        </tr>
+                    </table>
+                </td>
+                <td class="col-2 row-1">2</td>
+                <td class="col-3 row-1">3</td>
+                <td class="col-4 row-1">4</td>
+                <td class="col-5 row-1">5</td>
+                <td class="col-6 row-1">6</td>
+                <td class="col-7 row-1">7</td>
+                <td class="col-8 row-1">
+                    <table class="point-mark" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td class=" badge badge-lock" id="mark_A8_1">1</td>
+                            <td>2</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>5</td>
+                            <td>6</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>8</td>
+                            <td>9</td>
+                        </tr>
+                    </table>
+                </td>
+                <td class="col-9 row-1">9</td>
+            </tr>
+            <tr>
+                <td class="col-h">B</td>
+                <td class="col-1 row-2">1</td>
+                <td class="col-2 row-2">2</td>
+                <td class="col-3 row-2">3</td>
+                <td class="col-4 row-2">4</td>
+                <td class="col-5 row-2">5</td>
+                <td class="col-6 row-2">6</td>
+                <td class="col-7 row-2">7</td>
+                <td class="col-8 row-2">8</td>
+                <td class="col-9 row-2">9</td>
+            </tr>
+            <tr>
+                <td class="col-h">C</td>
+                <td class="col-1 row-3">1</td>
+                <td class="col-2 row-3">2</td>
+                <td class="col-3 row-3">3</td>
+                <td class="col-4 row-3">4</td>
+                <td class="col-5 row-3">5</td>
+                <td class="col-6 row-3">6</td>
+                <td class="col-7 row-3">
+                    <table class="point-mark" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td class=" badge badge-lock" id="mark_C7_1">1</td>
+                            <td>2</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>5</td>
+                            <td>6</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>8</td>
+                            <td>9</td>
+                        </tr>
+                    </table>
+                </td>
+                <td class="col-8 row-3">8</td>
+                <td class="col-9 row-3">
+                    <table class="point-mark" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td class=" badge badge-lock" id="mark_C7_9">1</td>
+                            <td>2</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>5</td>
+                            <td>6</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>8</td>
+                            <td>9</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-h">D</td>
+                <td class="col-1 row-4">
+                    <table class="point-mark" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td class=" badge badge-lock" id="mark_D1_1">1</td>
+                            <td>2</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>5</td>
+                            <td>6</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>8</td>
+                            <td class=" badge badge-relate" id="mark_D9_9">9</td>
+                        </tr>
+                    </table>
+                </td>
+                <td class="col-2 row-4">2</td>
+                <td class="col-3 row-4">3</td>
+                <td class="col-4 row-4">4</td>
+                <td class="col-5 row-4">5</td>
+                <td class="col-6 row-4">6</td>
+                <td class="col-7 row-4">7</td>
+                <td class="col-8 row-4">8</td>
+                <td class="col-9 row-4">9</td>
+            </tr>
+            <tr>
+                <td class="col-h">E</td>
+                <td class="col-1 row-5">1</td>
+                <td class="col-2 row-5">2</td>
+                <td class="col-3 row-5">3</td>
+                <td class="col-4 row-5">4</td>
+                <td class="col-5 row-5">5</td>
+                <td class="col-6 row-5">6</td>
+                <td class="col-7 row-5">7</td>
+                <td class="col-8 row-5">8</td>
+                <td class="col-9 row-5">9</td>
+            </tr>
+            <tr>
+                <td class="col-h">F</td>
+                <td class="col-1 row-6">1</td>
+                <td class="col-2 row-6">2</td>
+                <td class="col-3 row-6">3</td>
+                <td class="col-4 row-6">4</td>
+                <td class="col-5 row-6">5</td>
+                <td class="col-6 row-6">6</td>
+                <td class="col-7 row-6">7</td>
+                <td class="col-8 row-6">8</td>
+                <td class="col-9 row-6">9</td>
+            </tr>
+            <tr>
+                <td class="col-h">G</td>
+                <td class="col-1 row-7">1</td>
+                <td class="col-2 row-7">2</td>
+                <td class="col-3 row-7">3</td>
+                <td class="col-4 row-7">4</td>
+                <td class="col-5 row-7">5</td>
+                <td class="col-6 row-7">6</td>
+                <td class="col-7 row-7">7</td>
+                <td class="col-8 row-7">8</td>
+                <td class="col-9 row-7">9</td>
+            </tr>
+            <tr>
+                <td class="col-h">H</td>
+                <td class="col-1 row-8">1</td>
+                <td class="col-2 row-8">2</td>
+                <td class="col-3 row-8">3</td>
+                <td class="col-4 row-8">4</td>
+                <td class="col-5 row-8">5</td>
+                <td class="col-6 row-8">6</td>
+                <td class="col-7 row-8">7</td>
+                <td class="col-8 row-8">8</td>
+                <td class="col-9 row-8">9</td>
+            </tr>
+            <tr>
+                <td class="col-h">I</td>
+                <td class="col-1 row-9">1</td>
+                <td class="col-2 row-9">2</td>
+                <td class="col-3 row-9">3</td>
+                <td class="col-4 row-9">4</td>
+                <td class="col-5 row-9">5</td>
+                <td class="col-6 row-9">6</td>
+                <td class="col-7 row-9">7</td>
+                <td class="col-8 row-9">8</td>
+                <td class="col-9 row-9">9</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="fn-sudo-action">
+        <div class="action-cancel"><img src="images/cancel.png" class="action-img"></img>撤销</div>
+        <div class="action-clear"><img src="images/clear.png" class="action-img"></img>擦除</div>
+        <div class="action-mark" style="width:75px;">
+            <div class="tip-action hidden"><span>Off</span></div>
+            <div class="tip-action on"><span>On</span></div>
+            <div style="width:45px;">
+                <img src="images/mark.png" class="action-img"></img>标记
+            </div>
+        </div>
+        <div class="action-tips"><img src="images/tips.png" class="action-img"></img>提示</div>
+    </div>
+    <div class="fn-sudo-num">
+        <ul class="input-num">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li> </li>
+            <li>5</li>
+            <li>6</li>
+            <li>7</li>
+            <li>8</li>
+            <li>9</li>
+        </ul>
+        <ul class="input-mark">
+            <li>
+                <span>1</span>
+                <span class="tip-mark"></span>
+            </li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+            <li>7</li>
+            <li>8</li>
+            <li>9</li>
+        </ul>
+    </div>
+</div>
+
+
+<script type="text/javascript"> 
+var bodyApp = angular.module("bodyApp", []);
+
+bodyApp.controller("mainCtrl", ["$scope", "$document", "$interval", function($scope, $document, $interval) {
+    var mark1 = document.getElementById("mark_A1_1");
+    var mark2 = document.getElementById("mark_D1_1");
+    var deviation = 8
+    line(getElementLeft(mark1)+deviation, getElementTop(mark1)+deviation, getElementLeft(mark2)+deviation, getElementTop(mark2)+deviation)
+    var mark3 = document.getElementById("mark_A1_9");
+    var mark4 = document.getElementById("mark_D9_9");
+    line(getElementLeft(mark3)+deviation, getElementTop(mark3)+deviation, getElementLeft(mark3)+deviation, getElementTop(mark4)+deviation, true)
+    var mark5 = document.getElementById("mark_A8_1");
+    var mark6 = document.getElementById("mark_C7_1");
+    line(getElementLeft(mark5)+deviation, getElementTop(mark5)+deviation, getElementLeft(mark6)+deviation, getElementTop(mark6)+deviation, true)
+    var mark7 = document.getElementById("mark_C7_1");
+    var mark8 = document.getElementById("mark_C7_9");
+    deviation = 6;
+    line(getElementLeft(mark7)+deviation, getElementTop(mark7)+deviation, getElementLeft(mark8)+deviation, getElementTop(mark8)+deviation)
+}]);
+
+function makedot(x,y){ 
+  pointDiv="<div style='height:1px;position:absolute;left:" + x 
+  +"px;top:" + y 
+  + "px;width:2px;background:#f00;overflow:hidden'></div>"; 
+  return pointDiv;
+} 
+
+function line(x1, y1, x2, y2, isDotted=false){ 
+  var slope; //斜率
+  var direction;//坐标运动方向
+  var tx = x2 - x1;
+  var ty = y2 - y1;
+  if(tx == 0 && ty == 0)return;
+  var points = "";
+  var axis;//坐标轴上的坐标
+  var ignore_start = 6;
+  var ignore_end = 8;
+  if(Math.abs(tx) >= Math.abs(ty)){//在x轴上移动
+    direction = tx > 0 ? 1 : -1;
+    tx = Math.abs(tx);
+    slope = ty / tx;
+    axis = x1;
+    for(i = 0; i < tx; i ++){
+        if (i>ignore_start && i<tx-ignore_end && (i%2 == 0 || !isDotted)) {
+            points += makedot(axis, y1 + i * slope);
+        }
+        axis += direction;
+    } 
+  }
+  else{//在y轴上移动
+    direction = ty > 0 ? 1 : -1;
+    ty = Math.abs(ty);
+    slope = tx / ty; 
+    axis = y1;  
+    for(i = 0; i < ty; i ++){
+        if (i>ignore_start && i<ty-ignore_end && (i%2 == 0 || !isDotted)) {
+            points += makedot(x1 + i * slope, axis);
+        }
+        axis += direction;
+    }
+  }
+  var container = document.getElementById("main");
+  container.innerHTML += points; 
+}
+
+function getElementLeft(element){
+    var actualLeft = element.offsetLeft;
+    var current = element.offsetParent;
+
+    while (current !== null){
+        actualLeft += current.offsetLeft;
+        current = current.offsetParent;
+    }
+    return actualLeft;
+}
+function getElementTop(element){
+    var actualTop = element.offsetTop;
+    var current = element.offsetParent;
+
+    while (current !== null){
+        actualTop += current.offsetTop;
+        current = current.offsetParent;
+    }
+    return actualTop;
+}
+</script>
+
+</body>
+</html>

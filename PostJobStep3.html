@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="zh-cn">
+  <head> 
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+    </style>
+	<script type="text/javascript">
+	function replaceVal(val){
+		var startDate = new Date();
+		var endDate = addDays(new Date(), 30);
+		val = val.replace("{startDate}", formatDate(startDate));
+		val = val.replace("{endDate}", formatDate(endDate));
+		return val;
+	}
+	function onSubmit(){
+		var types = document.getElementsByName("cbType");
+		var account = getRadioVal("cbAccount");
+		var jsonValues = document.getElementsByName("jsonValue_"+account);		
+		for(var i=0; i<types.length; i++){
+			if(types[i].checked){
+				document.getElementById("jsonObject").value = replaceVal(jsonValues[i].value);
+				break;
+			}
+		}
+		if(document.getElementById("jsonObject").value == "") return false;
+		document.getElementById("myform").submit();
+	}
+	
+	function formatDate(date) {
+		var myyear = date.getFullYear();
+		var mymonth = date.getMonth() + 1;
+		var myweekday = date.getDate();
+
+		if (mymonth < 10) {
+			mymonth = "0" + mymonth;
+		}
+		if (myweekday < 10) {
+			myweekday = "0" + myweekday;
+		}
+		return (myweekday + "/" + mymonth + "/" + myyear);
+	}
+	function addDays(date, value) 
+	{ 
+		date.setDate(date.getDate()+value); 
+		return date;
+	} 
+
+	function getRadioVal(name){
+		var selectedVal;
+		var radios = document.getElementsByName(name);
+		for(var i=0; i<radios.length; i++){
+			if(radios[i].checked){
+				selectedVal = radios[i].value;
+				break;
+			}
+		}
+		return selectedVal;
+	}
+	
+	
+	function onSelfSubmit(){
+		document.getElementById("selfform").action = document.getElementById("self_action").value;
+		document.getElementById("selfform").submit();
+	}
+	</script>
+</head>
+<body>
+	<input type="radio" name="cbType" id="cbNew" checked="true"/><label for="cbNew">New</label>&nbsp;
+	<input type="text" name="jsonValue_demo" value='	{"metaforms":["{\"metaformId\":\"c_EpJbPgIoItDa\",\"metaformContent\":\"{\\\"c_EpJbPgIoItDap_PtToCy0\\\":\\\"\\\",\\\"c_EpJbPgIoItDap_IeImID0\\\":\\\"\\\",\\\"c_EpJbPgIoItDap_IeImSeIDs0\\\":\\\"\\\",\\\"c_EpJbPgIoItDap_AlSs0\\\":\\\"None\\\",\\\"c_EpJbPgIoItDap_AeTsAdCs0\\\":\\\"2\\\"}\"}","{\"metaformId\":\"c_EpJbAnItDa\",\"metaformContent\":\"{\\\"c_EpJbAnItDap_JbAdId0\\\":\\\"0\\\",\\\"c_EpJbAnItDap_FmAn0\\\":\\\"1\\\",\\\"c_EpJbAnItDap_FmAnMe0\\\":\\\"2\\\",\\\"c_EpJbAnItDap_Se0\\\":\\\"From Start Posting Ad\\\",\\\"c_EpJbAnItDap_Ss0\\\":\\\"Empty\\\",\\\"c_EpJbAnItDap_IsJbTeEe0\\\":\\\"True\\\",\\\"c_EpJbAnItDap_JsDBTeId0\\\":\\\"1\\\"}\"}","{\"metaformId\":\"c_EpJbAdDlItDa\",\"metaformContent\":\"{\\\"c_EpJbAdDlItDap_JobLoonOvasCory0\\\":\\\"0\\\",\\\"c_EpJbAdDlItDap_JbLnOsCy0\\\":\\\"\\\",\\\"c_EpJbAdDlItDap_MySyMn0\\\":\\\"\\\",\\\"c_EpJbAdDlItDap_MySyMx0\\\":\\\"\\\",\\\"c_EpJbAdDlItDap_SyNe0\\\":\\\"0\\\",\\\"c_EpJbAdDlItDap_ReReOn0\\\":\\\"0\\\",\\\"c_EpJbAdDlItDap_JbAdRe0\\\":\\\"\\\",\\\"c_EpJbAdDlItDap_SyFm0\\\":\\\"\\\",\\\"c_EpJbAdDlItDap_SyTo0\\\":\\\"\\\",\\\"c_EpJbAdDlItDap_SyVeToJr0\\\":\\\"2\\\",\\\"c_EpJbAdDlItDap_JbFn0\\\":\\\"17\\\",\\\"c_EpJbAdDlItDap_IySr0\\\":\\\"2\\\",\\\"c_EpJbAdDlItDap_JbLn0\\\":\\\"167\\\",\\\"c_EpJbAdDlItDap_PtDe0\\\":\\\"11/02/2014\\\",\\\"c_EpJbAdDlItDap_EyDe0\\\":\\\"13/03/2014\\\",\\\"c_EpJbAdDlItDap_SyTe0\\\":\\\"1\\\",\\\"c_EpJbAdDlItDap_SyAlIo0\\\":\\\"3\\\",\\\"IsVisibleHKENPg695\\\":\\\"2\\\",\\\"c_EpJbAdDlItDap_Bt0\\\":\\\"\\\",\\\"c_EpJbAdDlItDap_CrLl0\\\":\\\"0\\\",\\\"c_EpJbAdDlItDap_EnLl0\\\":\\\"0\\\",\\\"c_EpJbAdDlItDap_WkEe0\\\":\\\"0\\\",\\\"c_EpJbAdDlItDap_FhGeWe0_CheckBox\\\":\\\"\\\",\\\"c_EpJbAdDlItDap_FhGeWe0\\\":\\\"2\\\",\\\"c_EpJbAdDlItDap_ReNr0\\\":\\\"\\\",\\\"c_EpJbAdDlItDap_ElAsToMe0\\\":\\\"2\\\",\\\"c_EpJbAdDlItDap_ElAsToOs0\\\":\\\"2\\\",\\\"c_EpJbAdDlItDap_AnOrRt0\\\":\\\"Enter email\\\"}\"}","{\"metaformId\":\"c_EpJbAdSyItDa\",\"metaformContent\":\"{\\\"c_EpJbAdSyItDap_JbTe0\\\":\\\"11\\\",\\\"c_EpJbAdSyItDap_JbTeAtLg0\\\":\\\"\\\",\\\"c_EpJbAdSyItDap_StD10\\\":\\\"11\\\",\\\"c_EpJbAdSyItDap_StD20\\\":\\\"11\\\",\\\"c_EpJbAdSyItDap_StD30\\\":\\\"11\\\",\\\"c_EpJbAdSyItDap_JbDnAdRt0\\\":\\\"<p>111<br data-mce-bogus=\\\\\\\"1\\\\\\\"></p>\\\",\\\"c_EpJbAdSyItDap_CyPe0\\\":\\\"1\\\",\\\"c_EpJbAdSyItDap_MaFmSt0\\\":\\\"HKENPg695\\\",\\\"c_EpJbAdSyItDap_HeRdMr0\\\":\\\"False\\\",\\\"c_EpJbAdSyItDap_HeRdFd0\\\":\\\"True\\\",\\\"c_EpJbAdSyItDap_CsUeStNe0\\\":\\\"False\\\"}\"}","{\"metaformId\":\"c_EpCyIoItDa\",\"metaformContent\":\"{\\\"c_EpCyIoItDap_CyNe0\\\":\\\"miragelu\\\",\\\"c_EpCyIoItDap_CyNeAtLg0\\\":\\\"\\\",\\\"c_EpCyIoItDap_CyDn0\\\":\\\"\\\",\\\"c_EpCyIoItDap_CyLo0\\\":\\\"\\\",\\\"c_EpCyIoItDap_HeCyNe0\\\":2,\\\"c_EpCyIoItDap_SeAsDt0\\\":2,\\\"c_EpCyIoItDap_MaFmSt0\\\":\\\"HKENPg695\\\",\\\"c_EpCyIoItDap_HeRdMr0\\\":\\\"False\\\",\\\"c_EpCyIoItDap_HeRdFd0\\\":\\\"True\\\",\\\"c_EpCyIoItDap_CsUeStNe0\\\":\\\"False\\\"}\"}"]}'/>
+	<br/>
+	<textarea rows="10" cols="600" name="jsonValue_dev">
+	{
+    "metaforms": [
+        "{\"metaformId\":\"c_EpJbPgIoItDa\",\"metaformContent\":\"{\\\"c_EpJbPgIoItDap_PtToCy0\\\":\\\"HK\\\",\\\"c_EpJbPgIoItDap_IeImID0\\\":\\\"58081\\\",\\\"c_EpJbPgIoItDap_IeImSeIDs0\\\":\\\"\\\",\\\"c_EpJbPgIoItDap_AlSs0\\\":\\\"None\\\",\\\"c_EpJbPgIoItDap_AeTsAdCs0\\\":\\\"2\\\"}\"}", 
+        "{\"metaformId\":\"c_EpJbAnItDa\",\"metaformContent\":\"{\\\"c_EpJbAnItDap_JbAdId0\\\":\\\"0\\\",\\\"c_EpJbAnItDap_FmAn0\\\":\\\"1\\\",\\\"c_EpJbAnItDap_FmAnMe0\\\":\\\"2\\\",\\\"c_EpJbAnItDap_Se0\\\":\\\"\\\",\\\"c_EpJbAnItDap_Ss0\\\":\\\"Empty\\\",\\\"c_EpJbAnItDap_IsJbTeEe0\\\":\\\"True\\\",\\\"c_EpJbAnItDap_JsDBTeId0\\\":\\\"1\\\",\\\"c_EpJbAnItDap_IsRdPw0\\\":\\\"False\\\"}\"}", 
+        "{\"metaformId\":\"c_EpJbAdDlItDa\",\"metaformContent\":\"{\\\"c_EpJbAdDlItDap_JobLoonOvasCory0\\\":\\\"0\\\",\\\"c_EpJbAdDlItDap_JbLnOsCy0\\\":\\\"\\\",\\\"c_EpJbAdDlItDap_ReReOn0\\\":\\\"0\\\",\\\"c_EpJbAdDlItDap_JbAdRe0\\\":\\\"\\\",\\\"c_EpJbAdDlItDap_SyFm0\\\":\\\"8000\\\",\\\"c_EpJbAdDlItDap_SyTo0\\\":\\\"10999\\\",\\\"c_EpJbAdDlItDap_SyVeToJr0\\\":\\\"2\\\",\\\"c_EpJbAdDlItDap_JbAdFrId0\\\":\\\"0\\\",\\\"c_EpJbAdDlItDap_AoRtSdFy0\\\":\\\"0\\\",\\\"c_EpJbAdDlItDap_JbFn0\\\":\\\"39\\\",\\\"c_EpJbAdDlItDap_IySr0\\\":\\\"35\\\",\\\"c_EpJbAdDlItDap_JbLn0\\\":\\\"121\\\",
+			\\\"c_EpJbAdDlItDap_PtDe0\\\":\\\"{startDate}\\\",
+			\\\"c_EpJbAdDlItDap_EyDe0\\\":\\\"{endDate}\\\",
+			\\\"c_EpJbAdDlItDap_EtTm0\\\":\\\"1\\\",\\\"c_EpJbAdDlItDap_SyTe0\\\":\\\"1\\\",\\\"c_EpJbAdDlItDap_SyAlIo0\\\":\\\"3\\\",\\\"IsVisibleHKENPg695\\\":\\\"2\\\",\\\"c_EpJbAdDlItDap_Bt0\\\":\\\"\\\",\\\"c_EpJbAdDlItDap_CrLl0\\\":\\\"0\\\",\\\"c_EpJbAdDlItDap_EnLl0\\\":\\\"0\\\",\\\"c_EpJbAdDlItDap_WkEe0\\\":\\\"0\\\",\\\"c_EpJbAdDlItDap_FhGeWe0_CheckBox\\\":\\\"\\\",\\\"c_EpJbAdDlItDap_FhGeWe0\\\":\\\"2\\\",\\\"c_EpJbAdDlItDap_Kd0\\\":\\\"\\\",\\\"c_EpJbAdDlItDap_ReNr0\\\":\\\"\\\",\\\"ReceiveVia\\\":\\\"1\\\",\\\"c_EpJbAdDlItDap_AnOrRt0\\\":\\\"dev@jobsdb.com\\\",\\\"c_EpJbAdDlItDap_DtToElSeURL0\\\":\\\"\\\",\\\"c_EpJbAdDlItDap_IsRdV_AlAs0\\\":\\\"1\\\"}\"}", 
+        "{\"metaformId\":\"AutoRepost0_c_AoSdRt\",\"metaformContent\":\"{\\\"AutoRepost0_c_AoSdRtp_Id0\\\":\\\"\\\",\\\"AutoRepost0_c_AoSdRtp_StDeRy0\\\":\\\"\\\",\\\"AutoRepost0_c_AoSdRtp_EdDeRy0\\\":\\\"\\\",\\\"AutoRepost0_c_AoSdRtp_Pd0\\\":\\\"False\\\",\\\"AutoRepost0_c_AoSdRtp_IsAe0\\\":\\\"False\\\",\\\"AutoRepost0_c_AoSdRtp_IeImId0\\\":\\\"\\\",\\\"AutoRepost0_c_AoSdRtp_AyIeImSeIs0\\\":\\\"\\\",\\\"AutoRepost0_c_AoSdRtp_StDe0\\\":\\\"\\\",\\\"AutoRepost0_c_AoSdRtp_EdDe0\\\":\\\"\\\"}\"}", 
+        "{\"metaformId\":\"AutoRepost1_c_AoSdRt\",\"metaformContent\":\"{\\\"AutoRepost1_c_AoSdRtp_Id0\\\":\\\"\\\",\\\"AutoRepost1_c_AoSdRtp_StDeRy0\\\":\\\"\\\",\\\"AutoRepost1_c_AoSdRtp_EdDeRy0\\\":\\\"\\\",\\\"AutoRepost1_c_AoSdRtp_Pd0\\\":\\\"False\\\",\\\"AutoRepost1_c_AoSdRtp_IsAe0\\\":\\\"False\\\",\\\"AutoRepost1_c_AoSdRtp_IeImId0\\\":\\\"\\\",\\\"AutoRepost1_c_AoSdRtp_AyIeImSeIs0\\\":\\\"\\\",\\\"AutoRepost1_c_AoSdRtp_StDe0\\\":\\\"\\\",\\\"AutoRepost1_c_AoSdRtp_EdDe0\\\":\\\"\\\"}\"}", 
+        "{\"metaformId\":\"AutoRepost2_c_AoSdRt\",\"metaformContent\":\"{\\\"AutoRepost2_c_AoSdRtp_Id0\\\":\\\"\\\",\\\"AutoRepost2_c_AoSdRtp_StDeRy0\\\":\\\"\\\",\\\"AutoRepost2_c_AoSdRtp_EdDeRy0\\\":\\\"\\\",\\\"AutoRepost2_c_AoSdRtp_Pd0\\\":\\\"False\\\",\\\"AutoRepost2_c_AoSdRtp_IsAe0\\\":\\\"False\\\",\\\"AutoRepost2_c_AoSdRtp_IeImId0\\\":\\\"\\\",\\\"AutoRepost2_c_AoSdRtp_AyIeImSeIs0\\\":\\\"\\\",\\\"AutoRepost2_c_AoSdRtp_StDe0\\\":\\\"\\\",\\\"AutoRepost2_c_AoSdRtp_EdDe0\\\":\\\"\\\"}\"}", 
+        "{\"metaformId\":\"AutoRepost3_c_AoSdRt\",\"metaformContent\":\"{\\\"AutoRepost3_c_AoSdRtp_Id0\\\":\\\"\\\",\\\"AutoRepost3_c_AoSdRtp_StDeRy0\\\":\\\"\\\",\\\"AutoRepost3_c_AoSdRtp_EdDeRy0\\\":\\\"\\\",\\\"AutoRepost3_c_AoSdRtp_Pd0\\\":\\\"False\\\",\\\"AutoRepost3_c_AoSdRtp_IsAe0\\\":\\\"False\\\",\\\"AutoRepost3_c_AoSdRtp_IeImId0\\\":\\\"\\\",\\\"AutoRepost3_c_AoSdRtp_AyIeImSeIs0\\\":\\\"\\\",\\\"AutoRepost3_c_AoSdRtp_StDe0\\\":\\\"\\\",\\\"AutoRepost3_c_AoSdRtp_EdDe0\\\":\\\"\\\"}\"}", 
+        "{\"metaformId\":\"AutoRepost4_c_AoSdRt\",\"metaformContent\":\"{\\\"AutoRepost4_c_AoSdRtp_Id0\\\":\\\"\\\",\\\"AutoRepost4_c_AoSdRtp_StDeRy0\\\":\\\"\\\",\\\"AutoRepost4_c_AoSdRtp_EdDeRy0\\\":\\\"\\\",\\\"AutoRepost4_c_AoSdRtp_Pd0\\\":\\\"False\\\",\\\"AutoRepost4_c_AoSdRtp_IsAe0\\\":\\\"False\\\",\\\"AutoRepost4_c_AoSdRtp_IeImId0\\\":\\\"\\\",\\\"AutoRepost4_c_AoSdRtp_AyIeImSeIs0\\\":\\\"\\\",\\\"AutoRepost4_c_AoSdRtp_StDe0\\\":\\\"\\\",\\\"AutoRepost4_c_AoSdRtp_EdDe0\\\":\\\"\\\"}\"}", 
+        "{\"metaformId\":\"c_EpJbAdSyItDa\",\"metaformContent\":\"{\\\"c_EpJbAdSyItDap_PeNe0\\\":\\\"ericTericTericT\\\",\\\"c_EpJbAdSyItDap_PtToCy0\\\":\\\"HK\\\",\\\"c_EpJbAdSyItDap_BeSdPtToCy0\\\":\\\"HK\\\",\\\"c_EpJbAdSyItDap_JbTe0\\\":\\\"test\\\",\\\"c_EpJbAdSyItDap_JbTeAtLg0\\\":\\\"\\\",\\\"c_EpJbAdSyItDap_StD10\\\":\\\"test\\\",\\\"c_EpJbAdSyItDap_StD20\\\":\\\"test\\\",\\\"c_EpJbAdSyItDap_StD30\\\":\\\"test\\\",\\\"c_EpJbAdSyItDap_JbDnAdRt0\\\":\\\"<p>test</p>\\\",\\\"c_EpJbAdSyItDap_CyPe0\\\":\\\"1\\\",\\\"c_EpJbAdSyItDap_MaFmSt0\\\":\\\"HKENPg695\\\",\\\"c_EpJbAdSyItDap_HeRdMr0\\\":\\\"False\\\",\\\"c_EpJbAdSyItDap_HeRdFd0\\\":\\\"True\\\",\\\"c_EpJbAdSyItDap_CsUeStNe0\\\":\\\"False\\\"}\"}", 
+        "{\"metaformId\":\"c_EpCyIoItDa\",\"metaformContent\":\"{\\\"c_EpCyIoItDap_CyNe0\\\":\\\"DEV (Shenzhen) Co., Lim.\\\",\\\"c_EpCyIoItDap_CyNeAtLg0\\\":\\\"\\\",\\\"c_EpCyIoItDap_CyDn0\\\":\\\"\\\",\\\"c_EpCyIoItDap_CyLo0\\\":\\\"962\\\",\\\"c_EpCyIoItDap_HeCyNe0\\\":2,\\\"c_EpCyIoItDap_SeAsDt0\\\":2,\\\"c_EpCyIoItDap_MaFmSt0\\\":\\\"HKENPg695\\\",\\\"c_EpCyIoItDap_HeRdMr0\\\":\\\"False\\\",\\\"c_EpCyIoItDap_HeRdFd0\\\":\\\"True\\\",\\\"c_EpCyIoItDap_CsUeStNe0\\\":\\\"False\\\"}\"}"
+    ]
+}
+	</textarea>
+	<br/>
+	<input type="radio" name="cbType" id="cbEdit"/><label for="cbEdit">Edit 谷粉推銷員 (Gold plan)</label>
+	<input type="text" name="jsonValue_demo" value='{"metaforms":["{\"metaformId\":\"c_EpJbPgIoItDa\",\"metaformContent\":\"{\\\"c_EpJbPgIoItDap_PtToCy0\\\":\\\"\\\",\\\"c_EpJbPgIoItDap_IeImID0\\\":\\\"57728\\\",\\\"c_EpJbPgIoItDap_IeImSeIDs0\\\":\\\"\\\",\\\"c_EpJbPgIoItDap_AeTsAdCs0\\\":\\\"2\\\"}\"}","{\"metaformId\":\"c_EpJbAnItDa\",\"metaformContent\":\"{\\\"c_EpJbAnItDap_JbAdId0\\\":\\\"100003000010418\\\",\\\"c_EpJbAnItDap_FmAn0\\\":\\\"2\\\",\\\"c_EpJbAnItDap_FmAnMe0\\\":\\\"1\\\",\\\"c_EpJbAnItDap_Se0\\\":\\\"From Job Ad Details\\\",\\\"c_EpJbAnItDap_Ss0\\\":\\\"Active\\\",\\\"c_EpJbAnItDap_IsJbTeEe0\\\":\\\"False\\\",\\\"c_EpJbAnItDap_JsDBTeId0\\\":\\\"1\\\"}\"}","{\"metaformId\":\"c_EpJbAdDlItDa\",\"metaformContent\":\"{\\\"c_EpJbAdDlItDap_JobLoonOvasCory0\\\":\\\"0\\\",\\\"c_EpJbAdDlItDap_JbLnOsCy0\\\":\\\"\\\",\\\"c_EpJbAdDlItDap_MySyMn0\\\":\\\"\\\",\\\"c_EpJbAdDlItDap_MySyMx0\\\":\\\"\\\",\\\"c_EpJbAdDlItDap_SyNe0\\\":\\\"2\\\",\\\"c_EpJbAdDlItDap_ReReOn0\\\":\\\"0\\\",\\\"c_EpJbAdDlItDap_JbAdRe0\\\":\\\"JHK100003000010418\\\",\\\"c_EpJbAdDlItDap_SyFm0\\\":\\\"8000\\\",\\\"c_EpJbAdDlItDap_SyTo0\\\":\\\"16999\\\",\\\"c_EpJbAdDlItDap_SyVeToJr0\\\":\\\"2\\\",\\\"c_EpJbAdDlItDap_JbFn0\\\":\\\"140\\\",\\\"c_EpJbAdDlItDap_IySr0\\\":\\\"2\\\",\\\"c_EpJbAdDlItDap_JbLn0\\\":\\\"166\\\",\\\"c_EpJbAdDlItDap_PtDe0\\\":\\\"04/10/2012\\\",\\\"c_EpJbAdDlItDap_EyDe0\\\":\\\"03/11/2012\\\",\\\"c_EpJbAdDlItDap_SyTe0\\\":\\\"1\\\",\\\"c_EpJbAdDlItDap_SyAlIo0\\\":\\\"3\\\",\\\"IsVisibleHKENPg695\\\":\\\"2\\\",\\\"c_EpJbAdDlItDap_Bt0\\\":\\\"\\\",\\\"c_EpJbAdDlItDap_CrLl0\\\":\\\"2\\\",\\\"c_EpJbAdDlItDap_EnLl0\\\":\\\"14\\\",\\\"c_EpJbAdDlItDap_WkEe0\\\":\\\"4\\\",\\\"c_EpJbAdDlItDap_FhGeWe0_CheckBox\\\":\\\"\\\",\\\"c_EpJbAdDlItDap_FhGeWe0\\\":\\\"2\\\",\\\"c_EpJbAdDlItDap_ReNr0\\\":\\\"\\\",\\\"c_EpJbAdDlItDap_ElAsToMe0\\\":\\\"2\\\",\\\"c_EpJbAdDlItDap_ElAsToOs0\\\":\\\"1\\\",\\\"c_EpJbAdDlItDap_AnOrRt0\\\":\\\"sheenawong@jobsdb.com\\\"}\"}","{\"metaformId\":\"c_EpJbAdSyItDa\",\"metaformContent\":\"{\\\"c_EpJbAdSyItDap_JbTe0\\\":\\\"谷粉推銷員 (Gold plan)\\\",\\\"c_EpJbAdSyItDap_JbTeAtLg0\\\":\\\"\\\",\\\"c_EpJbAdSyItDap_StD10\\\":\\\"11\\\",\\\"c_EpJbAdSyItDap_StD20\\\":\\\"22\\\",\\\"c_EpJbAdSyItDap_StD30\\\":\\\"333\\\",\\\"c_EpJbAdSyItDap_JbDnAdRt0\\\":\\\"<p><b>Responsibilities</b></p>\\\\n<ul>\\\\n<li>Promote the use of Google Android products from HK$6k smartphones to HK$0.5k Shan-Zhai tablets.</li>\\\\n<li>Pronounce the term \\\\\\\"Android\\\\\\\" in different ways --- including but not limited to \\\\\\\"Andro\\\\\\\", \\\\\\\"Andra\\\\\\\", \\\\\\\"Andree\\\\\\\" and so on.</li>\\\\n<li>Keep comparing different \\\\\\\"root\\\\\\\" methods and task killers, and then always claim to others that Android is an \\\\\\\"open platform\\\\\\\", while no other platforms are as \\\\\\\"open\\\\\\\" --- without really understanding what \\\\\\\"open source\\\\\\\" is all about.</li>\\\\n<li>Make changes to the Linux kernel so that proprietary drivers can be added on top of it, without contributing back to the Linux kernel community.</li>\\\\n<li>Promote the leakage of personal data by always uploading them to Google servers at the background.</li>\\\\n<li>Help collecting Wifi signals all over the world.</li>\\\\n<li>Follow wherever the Street View crews go, and attempt to undress yourselves in front of the Street View cameras.</li>\\\\n<li>Go to Google China headquarters everyday to 非法獻花.</li>\\\\n</ul>\\\\n<p><b>Requirements</b></p>\\\\n<ul>\\\\n<li>Faithful believer of the Google religion.</li>\\\\n<li>Believe Google ≡ Open, and Open ≡ Google.</li>\\\\n<li>Love desserts.</li>\\\\n<li>Good at 尋釁滋事 (a.k.a. 「挑機」) in different online forums.</li>\\\\n<li>Able to put ads on *everywhere*.</li>\\\\n</ul>\\\\n<p>Interested parties please send an e-mail to yourown@gmail.com</p>\\\\n<p>&nbsp;</p>\\\",\\\"c_EpJbAdSyItDap_CyPe0\\\":\\\"1\\\",\\\"c_EpJbAdSyItDap_MaFmSt0\\\":\\\"HKENPg695\\\",\\\"c_EpJbAdSyItDap_HeRdMr0\\\":\\\"False\\\",\\\"c_EpJbAdSyItDap_HeRdFd0\\\":\\\"True\\\",\\\"c_EpJbAdSyItDap_CsUeStNe0\\\":\\\"False\\\"}\"}","{\"metaformId\":\"c_EpCyIoItDa\",\"metaformContent\":\"{\\\"c_EpCyIoItDap_CyNe0\\\":\\\"Company #1\\\",\\\"c_EpCyIoItDap_CyNeAtLg0\\\":\\\"\\\",\\\"c_EpCyIoItDap_CyDn0\\\":\\\"\\\",\\\"c_EpCyIoItDap_CyLo0\\\":\\\"817\\\",\\\"c_EpCyIoItDap_HeCyNe0\\\":2,\\\"c_EpCyIoItDap_SeAsDt0\\\":2,\\\"c_EpCyIoItDap_MaFmSt0\\\":\\\"HKENPg695\\\",\\\"c_EpCyIoItDap_HeRdMr0\\\":\\\"False\\\",\\\"c_EpCyIoItDap_HeRdFd0\\\":\\\"True\\\",\\\"c_EpCyIoItDap_CsUeStNe0\\\":\\\"False\\\"}\"}"]}'/>
+	<br/>
+	<input type="radio" name="cbType" id="cbCopy"/><label for="cbCopy">Copy 谷粉推銷員 (Gold plan)</label>
+	<input type="text" name="jsonValue_demo" value='{"metaforms":["{\"metaformId\":\"c_EpJbPgIoItDa\",\"metaformContent\":\"{\\\"c_EpJbPgIoItDap_PtToCy0\\\":\\\"\\\",\\\"c_EpJbPgIoItDap_IeImID0\\\":\\\"\\\",\\\"c_EpJbPgIoItDap_IeImSeIDs0\\\":\\\"\\\",\\\"c_EpJbPgIoItDap_AeTsAdCs0\\\":\\\"2\\\"}\"}","{\"metaformId\":\"c_EpJbAnItDa\",\"metaformContent\":\"{\\\"c_EpJbAnItDap_JbAdId0\\\":\\\"0\\\",\\\"c_EpJbAnItDap_FmAn0\\\":\\\"3\\\",\\\"c_EpJbAnItDap_FmAnMe0\\\":\\\"2\\\",\\\"c_EpJbAnItDap_Se0\\\":\\\"From Job Ad Details\\\",\\\"c_EpJbAnItDap_Ss0\\\":\\\"Empty\\\",\\\"c_EpJbAnItDap_IsJbTeEe0\\\":\\\"True\\\",\\\"c_EpJbAnItDap_JsDBTeId0\\\":\\\"1\\\"}\"}","{\"metaformId\":\"c_EpJbAdDlItDa\",\"metaformContent\":\"{\\\"c_EpJbAdDlItDap_JobLoonOvasCory0\\\":\\\"0\\\",\\\"c_EpJbAdDlItDap_JbLnOsCy0\\\":\\\"\\\",\\\"c_EpJbAdDlItDap_MySyMn0\\\":\\\"\\\",\\\"c_EpJbAdDlItDap_MySyMx0\\\":\\\"\\\",\\\"c_EpJbAdDlItDap_SyNe0\\\":\\\"0\\\",\\\"c_EpJbAdDlItDap_ReReOn0\\\":\\\"0\\\",\\\"c_EpJbAdDlItDap_JbAdRe0\\\":\\\"\\\",\\\"c_EpJbAdDlItDap_SyFm0\\\":\\\"8000\\\",\\\"c_EpJbAdDlItDap_SyTo0\\\":\\\"16999\\\",\\\"c_EpJbAdDlItDap_SyVeToJr0\\\":\\\"2\\\",\\\"c_EpJbAdDlItDap_JbFn0\\\":\\\"140\\\",\\\"c_EpJbAdDlItDap_IySr0\\\":\\\"2\\\",\\\"c_EpJbAdDlItDap_JbLn0\\\":\\\"166\\\",\\\"c_EpJbAdDlItDap_PtDe0\\\":\\\"23/01/2014\\\",\\\"c_EpJbAdDlItDap_EyDe0\\\":\\\"24/01/2014\\\",\\\"c_EpJbAdDlItDap_SyTe0\\\":\\\"1\\\",\\\"c_EpJbAdDlItDap_SyAlIo0\\\":\\\"3\\\",\\\"IsVisibleHKENPg695\\\":\\\"2\\\",\\\"c_EpJbAdDlItDap_Bt0\\\":\\\"\\\",\\\"c_EpJbAdDlItDap_CrLl0\\\":\\\"2\\\",\\\"c_EpJbAdDlItDap_EnLl0\\\":\\\"14\\\",\\\"c_EpJbAdDlItDap_WkEe0\\\":\\\"4\\\",\\\"c_EpJbAdDlItDap_FhGeWe0_CheckBox\\\":\\\"\\\",\\\"c_EpJbAdDlItDap_FhGeWe0\\\":\\\"2\\\",\\\"c_EpJbAdDlItDap_ReNr0\\\":\\\"\\\",\\\"c_EpJbAdDlItDap_ElAsToMe0\\\":\\\"2\\\",\\\"c_EpJbAdDlItDap_ElAsToOs0\\\":\\\"1\\\",\\\"c_EpJbAdDlItDap_AnOrRt0\\\":\\\"sheenawong@jobsdb.com\\\"}\"}","{\"metaformId\":\"c_EpJbAdSyItDa\",\"metaformContent\":\"{\\\"c_EpJbAdSyItDap_JbTe0\\\":\\\"copy\\\",\\\"c_EpJbAdSyItDap_JbTeAtLg0\\\":\\\"\\\",\\\"c_EpJbAdSyItDap_StD10\\\":\\\"11\\\",\\\"c_EpJbAdSyItDap_StD20\\\":\\\"22\\\",\\\"c_EpJbAdSyItDap_StD30\\\":\\\"333\\\",\\\"c_EpJbAdSyItDap_JbDnAdRt0\\\":\\\"<p><b>Responsibilities</b></p>\\\\n<ul>\\\\n<li>Promote the use of Google Android products from HK$6k smartphones to HK$0.5k Shan-Zhai tablets.</li>\\\\n<li>Pronounce the term \\\\\\\"Android\\\\\\\" in different ways --- including but not limited to \\\\\\\"Andro\\\\\\\", \\\\\\\"Andra\\\\\\\", \\\\\\\"Andree\\\\\\\" and so on.</li>\\\\n<li>Keep comparing different \\\\\\\"root\\\\\\\" methods and task killers, and then always claim to others that Android is an \\\\\\\"open platform\\\\\\\", while no other platforms are as \\\\\\\"open\\\\\\\" --- without really understanding what \\\\\\\"open source\\\\\\\" is all about.</li>\\\\n<li>Make changes to the Linux kernel so that proprietary drivers can be added on top of it, without contributing back to the Linux kernel community.</li>\\\\n<li>Promote the leakage of personal data by always uploading them to Google servers at the background.</li>\\\\n<li>Help collecting Wifi signals all over the world.</li>\\\\n<li>Follow wherever the Street View crews go, and attempt to undress yourselves in front of the Street View cameras.</li>\\\\n<li>Go to Google China headquarters everyday to 非法獻花.</li>\\\\n</ul>\\\\n<p><b>Requirements</b></p>\\\\n<ul>\\\\n<li>Faithful believer of the Google religion.</li>\\\\n<li>Believe Google ≡ Open, and Open ≡ Google.</li>\\\\n<li>Love desserts.</li>\\\\n<li>Good at 尋釁滋事 (a.k.a. 「挑機」) in different online forums.</li>\\\\n<li>Able to put ads on *everywhere*.</li>\\\\n</ul>\\\\n<p>Interested parties please send an e-mail to yourown@gmail.com</p>\\\\n<p>&nbsp;</p>\\\",\\\"c_EpJbAdSyItDap_CyPe0\\\":\\\"1\\\",\\\"c_EpJbAdSyItDap_MaFmSt0\\\":\\\"HKENPg695\\\",\\\"c_EpJbAdSyItDap_HeRdMr0\\\":\\\"False\\\",\\\"c_EpJbAdSyItDap_HeRdFd0\\\":\\\"True\\\",\\\"c_EpJbAdSyItDap_CsUeStNe0\\\":\\\"False\\\"}\"}","{\"metaformId\":\"c_EpCyIoItDa\",\"metaformContent\":\"{\\\"c_EpCyIoItDap_CyNe0\\\":\\\"Company #1\\\",\\\"c_EpCyIoItDap_CyNeAtLg0\\\":\\\"\\\",\\\"c_EpCyIoItDap_CyDn0\\\":\\\"\\\",\\\"c_EpCyIoItDap_CyLo0\\\":\\\"817\\\",\\\"c_EpCyIoItDap_HeCyNe0\\\":2,\\\"c_EpCyIoItDap_SeAsDt0\\\":2,\\\"c_EpCyIoItDap_MaFmSt0\\\":\\\"HKENPg695\\\",\\\"c_EpCyIoItDap_HeRdMr0\\\":\\\"False\\\",\\\"c_EpCyIoItDap_HeRdFd0\\\":\\\"True\\\",\\\"c_EpCyIoItDap_CsUeStNe0\\\":\\\"False\\\"}\"}"]}'/>
+	<br/><br/>
+	<form name="myform" id="myform" method="post" action="http://v8.dev.rms.jobsdb.com/HK/en/empjobs/preview-a-job-ad">
+		<input type="hidden" name="jsonObject" id="jsonObject" value=""/>
+		<input type="radio" name="cbAccount" id="cbAccount_Demo" value="demo"/>Demo
+		<input type="radio" name="cbAccount" id="cbAccount_Dev" value="dev" checked/>Dev
+		<br/>
+		<input type="button" value="Submit" onclick="onSubmit();"/>
+	</form>
+	
+	<br/><br/>
+	<form name="selfform" id="selfform" method="post" action="">
+		<input type="text" name="self_action" id="self_action" style="width:400px;" 
+			value="http://v8.dev.rms.jobsdb.com/HK/en/empjobs/preview-a-job-ad" />		
+		<br/>
+		<textarea rows="10" cols="600" name="jsonObject" style="width:400px;"></textarea>
+		<br/>
+		<input type="button" value="Submit" onclick="onSelfSubmit();"/>
+	</form>
+</body>
+</html>

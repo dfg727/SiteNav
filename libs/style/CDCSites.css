@@ -1,0 +1,9 @@
+﻿*
+{
+    font: 12px Arial,Helvetica,sans-serif;
+}
+ul, li
+{
+    list-style-type: none;
+}
+.hide{display:none;}
