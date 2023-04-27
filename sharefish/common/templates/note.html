@@ -1,0 +1,728 @@
+
+						<!--begin::Subheader-->
+						<div class="subheader py-2 py-lg-6 subheader-transparent" id="kt_subheader">
+							<div class="container d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
+								<!--begin::Info-->
+								<div class="d-flex align-items-center flex-wrap mr-1">
+									<!--begin::Mobile Toggle-->
+									<button class="burger-icon burger-icon-left mr-4 d-inline-block d-lg-none" id="kt_subheader_mobile_toggle">
+										<span></span>
+									</button>
+									<!--end::Mobile Toggle-->
+									<!--begin::Page Heading-->
+									<div class="d-flex align-items-baseline flex-wrap mr-5">
+										<!--begin::Page Title-->
+										<h5 class="text-dark font-weight-bold my-1 mr-5">Tasks</h5>
+										<!--end::Page Title-->
+										<!--begin::Breadcrumb-->
+										<ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
+											<li class="breadcrumb-item">
+												<a href="" class="text-muted">Apps</a>
+											</li>
+											<li class="breadcrumb-item">
+												<a href="" class="text-muted">Todo</a>
+											</li>
+											<li class="breadcrumb-item">
+												<a href="" class="text-muted">Tasks</a>
+											</li>
+										</ul>
+										<!--end::Breadcrumb-->
+									</div>
+									<!--end::Page Heading-->
+								</div>
+								<!--end::Info-->
+							</div>
+						</div>
+						<!--end::Subheader-->
+						<!--begin::Entry-->
+						<div class="d-flex flex-column-fluid">
+							<!--begin::Container-->
+							<div class="container">
+								<!--begin::Todo-->
+								<div class="d-flex flex-row">
+									<!--begin::Aside-->
+									<div class="flex-row-auto offcanvas-mobile w-200px w-xxl-275px" id="kt_todo_aside">
+										<!--begin::Card-->
+										<div class="card card-custom card-stretch">
+											<!--begin::Body-->
+											<div class="card-body px-5">
+												<!--begin:Nav-->
+												<div class="navi navi-hover navi-active navi-link-rounded navi-bold navi-icon-center navi-light-icon">
+													<!--begin:Item-->
+													<div class="navi-item my-2">
+														<a href="javascript:void(0);" class="navi-link active">
+															<span class="navi-icon mr-4">
+																<span class="svg-icon svg-icon-lg">
+																	<!--begin::Svg Icon | path:assets/media/svg/icons/Communication/Mail-heart.svg-->
+																	<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+																		<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+																			<rect x="0" y="0" width="24" height="24" />
+																			<path d="M6,2 L18,2 C18.5522847,2 19,2.44771525 19,3 L19,13 C19,13.5522847 18.5522847,14 18,14 L6,14 C5.44771525,14 5,13.5522847 5,13 L5,3 C5,2.44771525 5.44771525,2 6,2 Z M13.8,4 C13.1562,4 12.4033,4.72985286 12,5.2 C11.5967,4.72985286 10.8438,4 10.2,4 C9.0604,4 8.4,4.88887193 8.4,6.02016349 C8.4,7.27338783 9.6,8.6 12,10 C14.4,8.6 15.6,7.3 15.6,6.1 C15.6,4.96870845 14.9396,4 13.8,4 Z" fill="#000000" opacity="0.3" />
+																			<path d="M3.79274528,6.57253826 L12,12.5 L20.2072547,6.57253826 C20.4311176,6.4108595 20.7436609,6.46126971 20.9053396,6.68513259 C20.9668779,6.77033951 21,6.87277228 21,6.97787787 L21,17 C21,18.1045695 20.1045695,19 19,19 L5,19 C3.8954305,19 3,18.1045695 3,17 L3,6.97787787 C3,6.70173549 3.22385763,6.47787787 3.5,6.47787787 C3.60510559,6.47787787 3.70753836,6.51099993 3.79274528,6.57253826 Z" fill="#000000" />
+																		</g>
+																	</svg>
+																	<!--end::Svg Icon-->
+																</span>
+															</span>
+															<span class="navi-text font-weight-bolder font-size-lg">Todo</span>
+															<span class="navi-label">
+																<span class="label label-rounded label-light-success font-weight-bolder">3</span>
+															</span>
+														</a>
+													</div>
+													<!--end:Item-->
+													<!--begin:Item-->
+													<div class="navi-item my-2">
+														<a href="javascript:void(0);" class="navi-link">
+															<span class="navi-icon mr-4">
+																<span class="svg-icon svg-icon-lg">
+																	<!--begin::Svg Icon | path:assets/media/svg/icons/General/Half-star.svg-->
+																	<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+																		<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+																			<rect x="0" y="0" width="24" height="24"/>
+																			<path d="M12,4.56204994 L7.76822128,9.6401844 C7.4146572,10.0644613 6.7840925,10.1217854 6.3598156,9.76822128 C5.9355387,9.4146572 5.87821464,8.7840925 6.23177872,8.3598156 L11.2317787,2.3598156 C11.6315738,1.88006147 12.3684262,1.88006147 12.7682213,2.3598156 L17.7682213,8.3598156 C18.1217854,8.7840925 18.0644613,9.4146572 17.6401844,9.76822128 C17.2159075,10.1217854 16.5853428,10.0644613 16.2317787,9.6401844 L12,4.56204994 Z" fill="#000000" fill-rule="nonzero" opacity="0.3"/>
+																			<path d="M3.28077641,9 L20.7192236,9 C21.2715083,9 21.7192236,9.44771525 21.7192236,10 C21.7192236,10.0817618 21.7091962,10.163215 21.6893661,10.2425356 L19.5680983,18.7276069 C19.234223,20.0631079 18.0342737,21 16.6576708,21 L7.34232922,21 C5.96572629,21 4.76577697,20.0631079 4.43190172,18.7276069 L2.31063391,10.2425356 C2.17668518,9.70674072 2.50244587,9.16380623 3.03824078,9.0298575 C3.11756139,9.01002735 3.1990146,9 3.28077641,9 Z M12,12 C11.4477153,12 11,12.4477153 11,13 L11,17 C11,17.5522847 11.4477153,18 12,18 C12.5522847,18 13,17.5522847 13,17 L13,13 C13,12.4477153 12.5522847,12 12,12 Z M6.96472382,12.1362967 C6.43125772,12.2792385 6.11467523,12.8275755 6.25761704,13.3610416 L7.29289322,17.2247449 C7.43583503,17.758211 7.98417199,18.0747935 8.51763809,17.9318517 C9.05110419,17.7889098 9.36768668,17.2405729 9.22474487,16.7071068 L8.18946869,12.8434035 C8.04652688,12.3099374 7.49818992,11.9933549 6.96472382,12.1362967 Z M17.0352762,12.1362967 C16.5018101,11.9933549 15.9534731,12.3099374 15.8105313,12.8434035 L14.7752551,16.7071068 C14.6323133,17.2405729 14.9488958,17.7889098 15.4823619,17.9318517 C16.015828,18.0747935 16.564165,17.758211 16.7071068,17.2247449 L17.742383,13.3610416 C17.8853248,12.8275755 17.5687423,12.2792385 17.0352762,12.1362967 Z" fill="#000000"/>
+																		</g>
+																	</svg>
+																	<!--end::Svg Icon-->
+																</span>
+															</span>
+															<span class="navi-text font-weight-bolder font-size-lg">Collect</span>
+														</a>
+													</div>
+													<!--end:Item-->
+													<!--begin:Item-->
+													<div class="navi-item my-2">
+														<a href="javascript:void(0);" class="navi-link">
+															<span class="navi-icon mr-4">
+																<span class="svg-icon svg-icon-lg">
+																	<!--begin::Svg Icon | path:assets/media/svg/icons/Design/PenAndRuller.svg-->
+																	<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+																		<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+																			<rect x="0" y="0" width="24" height="24" />
+																			<path d="M3,16 L5,16 C5.55228475,16 6,15.5522847 6,15 C6,14.4477153 5.55228475,14 5,14 L3,14 L3,12 L5,12 C5.55228475,12 6,11.5522847 6,11 C6,10.4477153 5.55228475,10 5,10 L3,10 L3,8 L5,8 C5.55228475,8 6,7.55228475 6,7 C6,6.44771525 5.55228475,6 5,6 L3,6 L3,4 C3,3.44771525 3.44771525,3 4,3 L10,3 C10.5522847,3 11,3.44771525 11,4 L11,19 C11,19.5522847 10.5522847,20 10,20 L4,20 C3.44771525,20 3,19.5522847 3,19 L3,16 Z" fill="#000000" opacity="0.3" />
+																			<path d="M16,3 L19,3 C20.1045695,3 21,3.8954305 21,5 L21,15.2485298 C21,15.7329761 20.8241635,16.200956 20.5051534,16.565539 L17.8762883,19.5699562 C17.6944473,19.7777745 17.378566,19.7988332 17.1707477,19.6169922 C17.1540423,19.602375 17.1383289,19.5866616 17.1237117,19.5699562 L14.4948466,16.565539 C14.1758365,16.200956 14,15.7329761 14,15.2485298 L14,5 C14,3.8954305 14.8954305,3 16,3 Z" fill="#000000" />
+																		</g>
+																	</svg>
+																	<!--end::Svg Icon-->
+																</span>
+															</span>
+															<span class="navi-text font-weight-bolder font-size-lg">Lab</span>
+															<span class="navi-label">
+																<span class="label label-rounded label-light-warning font-weight-bolder">5</span>
+															</span>
+														</a>
+													</div>
+													<!--end:Item-->
+													<!--begin:Item-->
+													<div class="navi-item my-2">
+														<a href="javascript:void(0);" class="navi-link">
+															<span class="navi-icon mr-4">
+																<span class="svg-icon svg-icon-lg">
+																	<!--begin::Svg Icon | path:assets/media/svg/icons/Communication/Sending.svg-->
+																	<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+																		<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+																			<rect x="0" y="0" width="24" height="24"/>
+																			<path d="M3.5,21 L20.5,21 C21.3284271,21 22,20.3284271 22,19.5 L22,8.5 C22,7.67157288 21.3284271,7 20.5,7 L10,7 L7.43933983,4.43933983 C7.15803526,4.15803526 6.77650439,4 6.37867966,4 L3.5,4 C2.67157288,4 2,4.67157288 2,5.5 L2,19.5 C2,20.3284271 2.67157288,21 3.5,21 Z" fill="#000000" opacity="0.3"/>
+																			<path d="M14.35,10.5 C13.54525,10.5 12.604125,11.4123161 12.1,12 C11.595875,11.4123161 10.65475,10.5 9.85,10.5 C8.4255,10.5 7.6,11.6110899 7.6,13.0252044 C7.6,14.5917348 9.1,16.25 12.1,18 C15.1,16.25 16.6,14.625 16.6,13.125 C16.6,11.7108856 15.7745,10.5 14.35,10.5 Z" fill="#000000" fill-rule="nonzero" opacity="0.3"/>
+																		</g>
+																	</svg>
+																	<!--end::Svg Icon-->
+																</span>
+															</span>
+															<span class="navi-text font-weight-bolder font-size-lg">Backup</span>
+														</a>
+													</div>
+													<!--end:Item-->
+													<!--begin:Item-->
+													<div class="navi-item my-2">
+														<a href="javascript:void(0);" class="navi-link">
+															<span class="navi-icon mr-4">
+																<span class="svg-icon svg-icon-lg">
+																	<!--begin::Svg Icon | path:assets/media/svg/icons/General/Trash.svg-->
+																	<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+																		<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+																			<rect x="0" y="0" width="24" height="24"/>
+																			<circle fill="#000000" cx="5" cy="12" r="2"/>
+																			<circle fill="#000000" cx="12" cy="12" r="2"/>
+																			<circle fill="#000000" cx="19" cy="12" r="2"/>
+																		</g>
+																	</svg>
+																	<!--end::Svg Icon-->
+																</span>
+															</span>
+															<span class="navi-text font-weight-bolder font-size-lg">Others</span>
+														</a>
+													</div>
+													<!--end:Item-->
+													
+													<!--begin:Item-->
+													<div class="navi-item my-2">
+														<a href="javascript:void(0);" class="navi-link" onclick="$('#kt_inbox_compose').show()">
+															<span class="navi-icon mr-4">
+																<i class="fa flaticon2-plus icon-1x"></i>
+															</span>
+															<span class="navi-text font-weight-bolder font-size-lg">Add Project</span>
+														</a>
+													</div>
+													<!--begin:Section-->
+													<div class="navi-section mt-7 mb-2 font-size-h6 font-weight-bold pb-0">Tags</div>
+													<!--end:Section-->
+													<!--begin:Item-->
+													<div class="navi-item my-2">
+														<a href="javascript:void(0);" class="navi-link">
+															<span class="navi-icon mr-4">
+																<i class="fa fa-genderless text-danger"></i>
+															</span>
+															<span class="navi-text font-weight-bolder font-size-lg">Custom Work</span>
+															<span class="navi-label">
+																<span class="label label-rounded label-light-danger font-weight-bolder">6</span>
+															</span>
+														</a>
+													</div>
+													<!--end:Item-->
+													<!--begin:Item-->
+													<div class="navi-item my-2">
+														<a href="javascript:void(0);" class="navi-link">
+															<span class="navi-icon mr-4">
+																<i class="fa fa-genderless text-success"></i>
+															</span>
+															<span class="navi-text font-weight-bolder font-size-lg">Partnership</span>
+														</a>
+													</div>
+													<!--end:Item-->
+													<!--begin:Item-->
+													<div class="navi-item my-2">
+														<a href="javascript:void(0);" class="navi-link">
+															<span class="navi-icon mr-4">
+																<i class="fa fa-genderless text-info"></i>
+															</span>
+															<span class="navi-text font-weight-bolder font-size-lg">In Progres</span>
+														</a>
+													</div>
+													<!--end:Item-->
+													<!--begin:Item-->
+													<div class="navi-item my-2">
+														<a href="javascript:void(0);" class="navi-link" onclick="$('#kt_inbox_compose').show()">
+															<span class="navi-icon mr-4">
+																<i class="fa flaticon2-plus icon-1x"></i>
+															</span>
+															<span class="navi-text font-weight-bolder font-size-lg">Add Label</span>
+														</a>
+													</div>
+													<!--end:Item-->
+												</div>
+												<!--end:Nav-->
+											</div>
+											<!--end::Body-->
+										</div>
+										<!--end::Card-->
+									</div>
+									<!--end::Aside-->
+									<!--begin::List-->
+									<div class="flex-row-fluid ml-lg-8">
+										<div class="d-flex flex-column flex-grow-1">
+											
+											<!--begin::Row-->
+											<div class="row">
+												<div class="min-h-400px" ng-class="{'col-xl-6':detail.toggle, 'col-xl-12':!detail.toggle}" id="note_list">
+													<!--begin::Card-->
+													<div class="card card-custom card-stretch" id="kt_todo_list">
+														<!--begin::Header-->
+														<div class="card-header align-items-center flex-wrap py-6 border-0 h-auto">
+															<!--begin::Toolbar-->
+															<div class="d-flex flex-wrap align-items-center">
+																<div class="d-flex align-items-center mr-1 my-2">
+																	<label data-inbox="group-select" class="checkbox checkbox-inline checkbox-primary mr-3">
+																		<input type="checkbox" />
+																		<span class="symbol-label"></span>
+																	</label>
+																	<div class="btn-group">
+																		<span class="btn btn-clean btn-icon btn-sm mr-1" data-toggle="dropdown" role="button">
+																			<i class="flaticon2-down icon-sm"></i>
+																		</span>
+																		<div class="dropdown-menu dropdown-menu-left p-0 m-0 dropdown-menu-sm">
+																			<ul class="navi py-3">
+																				<li class="navi-item">
+																					<a href="javascript:void(0);" class="navi-link">
+																						<span class="navi-text">All</span>
+																					</a>
+																				</li>
+																				<li class="navi-item">
+																					<a href="javascript:void(0);" class="navi-link">
+																						<span class="navi-text">Read</span>
+																					</a>
+																				</li>
+																				<li class="navi-item">
+																					<a href="javascript:void(0);" class="navi-link">
+																						<span class="navi-text">Unread</span>
+																					</a>
+																				</li>
+																				<li class="navi-item">
+																					<a href="javascript:void(0);" class="navi-link">
+																						<span class="navi-text">Starred</span>
+																					</a>
+																				</li>
+																				<li class="navi-item">
+																					<a href="javascript:void(0);" class="navi-link">
+																						<span class="navi-text">Unstarred</span>
+																					</a>
+																				</li>
+																			</ul>
+																		</div>
+																	</div>
+																	<span class="btn btn-clean btn-icon btn-sm mr-2" data-toggle="tooltip" title="Reload list">
+																		<i class="flaticon-refresh icon-1x"></i>
+																	</span>
+																</div>
+																<div class="d-flex align-items-center mr-1 my-2">
+																	<span class="btn btn-default btn-icon btn-sm mr-2" data-toggle="tooltip" title="Archive">
+																		<span class="svg-icon svg-icon-md">
+																			<!--begin::Svg Icon | path:assets/media/svg/icons/Communication/Mail-opened.svg-->
+																			<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+																				<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+																					<rect x="0" y="0" width="24" height="24" />
+																					<path d="M6,2 L18,2 C18.5522847,2 19,2.44771525 19,3 L19,12 C19,12.5522847 18.5522847,13 18,13 L6,13 C5.44771525,13 5,12.5522847 5,12 L5,3 C5,2.44771525 5.44771525,2 6,2 Z M7.5,5 C7.22385763,5 7,5.22385763 7,5.5 C7,5.77614237 7.22385763,6 7.5,6 L13.5,6 C13.7761424,6 14,5.77614237 14,5.5 C14,5.22385763 13.7761424,5 13.5,5 L7.5,5 Z M7.5,7 C7.22385763,7 7,7.22385763 7,7.5 C7,7.77614237 7.22385763,8 7.5,8 L10.5,8 C10.7761424,8 11,7.77614237 11,7.5 C11,7.22385763 10.7761424,7 10.5,7 L7.5,7 Z" fill="#000000" opacity="0.3" />
+																					<path d="M3.79274528,6.57253826 L12,12.5 L20.2072547,6.57253826 C20.4311176,6.4108595 20.7436609,6.46126971 20.9053396,6.68513259 C20.9668779,6.77033951 21,6.87277228 21,6.97787787 L21,17 C21,18.1045695 20.1045695,19 19,19 L5,19 C3.8954305,19 3,18.1045695 3,17 L3,6.97787787 C3,6.70173549 3.22385763,6.47787787 3.5,6.47787787 C3.60510559,6.47787787 3.70753836,6.51099993 3.79274528,6.57253826 Z" fill="#000000" />
+																				</g>
+																			</svg>
+																			<!--end::Svg Icon-->
+																		</span>
+																	</span>
+																	<span class="btn btn-default btn-icon btn-sm mr-2" data-toggle="tooltip" title="Spam">
+																		<span class="svg-icon svg-icon-md">
+																			<!--begin::Svg Icon | path:assets/media/svg/icons/Code/Warning-1-circle.svg-->
+																			<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+																				<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+																					<rect x="0" y="0" width="24" height="24" />
+																					<circle fill="#000000" opacity="0.3" cx="12" cy="12" r="10" />
+																					<rect fill="#000000" x="11" y="7" width="2" height="8" rx="1" />
+																					<rect fill="#000000" x="11" y="16" width="2" height="2" rx="1" />
+																				</g>
+																			</svg>
+																			<!--end::Svg Icon-->
+																		</span>
+																	</span>
+																	<span class="btn btn-default btn-icon btn-sm mr-2" data-toggle="tooltip" title="Move">
+																		<span class="svg-icon svg-icon-md">
+																			<!--begin::Svg Icon | path:assets/media/svg/icons/Files/Media-folder.svg-->
+																			<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+																				<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+																					<rect x="0" y="0" width="24" height="24" />
+																					<path d="M3.5,21 L20.5,21 C21.3284271,21 22,20.3284271 22,19.5 L22,8.5 C22,7.67157288 21.3284271,7 20.5,7 L10,7 L7.43933983,4.43933983 C7.15803526,4.15803526 6.77650439,4 6.37867966,4 L3.5,4 C2.67157288,4 2,4.67157288 2,5.5 L2,19.5 C2,20.3284271 2.67157288,21 3.5,21 Z" fill="#000000" opacity="0.3" />
+																					<path d="M10.782158,17.5100514 L15.1856088,14.5000448 C15.4135806,14.3442132 15.4720618,14.0330791 15.3162302,13.8051073 C15.2814587,13.7542388 15.2375842,13.7102355 15.1868178,13.6753149 L10.783367,10.6463273 C10.5558531,10.489828 10.2445489,10.5473967 10.0880496,10.7749107 C10.0307022,10.8582806 10,10.9570884 10,11.0582777 L10,17.097272 C10,17.3734143 10.2238576,17.597272 10.5,17.597272 C10.6006894,17.597272 10.699033,17.566872 10.782158,17.5100514 Z" fill="#000000" />
+																				</g>
+																			</svg>
+																			<!--end::Svg Icon-->
+																		</span>
+																	</span>
+																</div>
+															</div>
+															<!--end::Toolbar-->
+															<!--begin::Actions-->
+															<div class="d-flex align-items-center my-2">
+																<div class="dropdown mr-2" data-toggle="tooltip" title="Sort">
+																	<span class="btn btn-default btn-icon btn-sm" data-toggle="dropdown">
+																		<i class="flaticon2-console icon-1x"></i>
+																	</span>
+																	<div class="dropdown-menu dropdown-menu-right p-0 m-0 dropdown-menu-sm">
+																		<ul class="navi py-3">
+																			<li class="navi-item">
+																				<a href="javascript:void(0);" class="navi-link active">
+																					<span class="navi-text">Newest</span>
+																				</a>
+																			</li>
+																			<li class="navi-item">
+																				<a href="javascript:void(0);" class="navi-link">
+																					<span class="navi-text">Olders</span>
+																				</a>
+																			</li>
+																			<li class="navi-item">
+																				<a href="javascript:void(0);" class="navi-link">
+																					<span class="navi-text">Unread</span>
+																				</a>
+																			</li>
+																		</ul>
+																	</div>
+																</div>
+																<div class="dropdown" data-toggle="tooltip" title="Settings">
+																	<span class="btn btn-default btn-icon btn-sm mr-2" data-toggle="dropdown">
+																		<i class="flaticon-cogwheel-2 icon-1x"></i>
+																	</span>
+																	<div class="dropdown-menu dropdown-menu-right p-0 m-0 dropdown-menu-md">
+																		<!--begin::Navigation-->
+																		<ul class="navi navi-hover py-5">
+																			<li class="navi-item">
+																				<a href="javascript:void(0);" class="navi-link">
+																					<span class="navi-icon">
+																						<i class="flaticon2-drop"></i>
+																					</span>
+																					<span class="navi-text">New Group</span>
+																				</a>
+																			</li>
+																			<li class="navi-item">
+																				<a href="javascript:void(0);" class="navi-link">
+																					<span class="navi-icon">
+																						<i class="flaticon2-list-3"></i>
+																					</span>
+																					<span class="navi-text">Contacts</span>
+																				</a>
+																			</li>
+																			<li class="navi-item">
+																				<a href="javascript:void(0);" class="navi-link">
+																					<span class="navi-icon">
+																						<i class="flaticon2-rocket-1"></i>
+																					</span>
+																					<span class="navi-text">Groups</span>
+																					<span class="navi-link-badge">
+																						<span class="label label-light-primary label-inline font-weight-bold">new</span>
+																					</span>
+																				</a>
+																			</li>
+																			<li class="navi-item">
+																				<a href="javascript:void(0);" class="navi-link">
+																					<span class="navi-icon">
+																						<i class="flaticon2-bell-2"></i>
+																					</span>
+																					<span class="navi-text">Calls</span>
+																				</a>
+																			</li>
+																			<li class="navi-item">
+																				<a href="javascript:void(0);" class="navi-link">
+																					<span class="navi-icon">
+																						<i class="flaticon2-gear"></i>
+																					</span>
+																					<span class="navi-text">Settings</span>
+																				</a>
+																			</li>
+																			<li class="navi-separator my-3"></li>
+																			<li class="navi-item">
+																				<a href="javascript:void(0);" class="navi-link">
+																					<span class="navi-icon">
+																						<i class="flaticon2-magnifier-tool"></i>
+																					</span>
+																					<span class="navi-text">Help</span>
+																				</a>
+																			</li>
+																			<li class="navi-item">
+																				<a href="javascript:void(0);" class="navi-link">
+																					<span class="navi-icon">
+																						<i class="flaticon2-bell-2"></i>
+																					</span>
+																					<span class="navi-text">Privacy</span>
+																					<span class="navi-link-badge">
+																						<span class="label label-light-danger label-rounded font-weight-bold">5</span>
+																					</span>
+																				</a>
+																			</li>
+																		</ul>
+																		<!--end::Navigation-->
+																	</div>
+																</div>
+																<span class="btn btn-light-success btn-sm text-uppercase font-weight-bolder" data-toggle="tooltip" title="Previose page">New Task</span>
+															</div>
+															<!--end::Actions-->
+														</div>
+														<!--end::Header-->
+														<!--begin::Body-->
+														<div class="card-body p-0">
+															<!--begin::Responsive container-->
+															<div class="table-responsive">
+																<!--begin::Items-->
+																<div class="list list-hover min-w-450px"  ng-repeat="note in noteList | filter : {status : '1'}">
+																	<!--begin::Item-->
+																	<div class="d-flex align-items-start list-item card-spacer-x py-4" data-inbox="message">
+																		<!--begin::Toolbar-->
+																		<div class="d-flex align-items-center">
+																			<!--begin::Actions-->
+																			<div class="d-flex align-items-center mr-3" data-inbox="actions">
+																				<!--begin::Checkbox-->
+																				<label class="checkbox checkbox-inline checkbox-primary flex-shrink-0 mr-3">
+																					<input type="checkbox" />
+																					<span></span>
+																				</label>
+																				<!--end::Checkbox-->
+																				<!--begin::Buttons-->
+																				<a href="javascript:void(0);" class="btn btn-icon btn-xs btn-hover-text-warning active" data-toggle="tooltip" data-placement="right" title="Star">
+																					<i class="flaticon-star text-muted"></i>
+																				</a>
+																				<a href="javascript:void(0);" class="btn btn-icon btn-xs text-hover-warning" data-toggle="tooltip" data-placement="right" title="Mark as important">
+																					<i class="flaticon-add-label-button text-muted"></i>
+																				</a>
+																				<!--end::Buttons-->
+																			</div>
+																			<!--end::Actions-->
+																		</div>
+																		<!--end::Toolbar-->
+																		<!--begin::Info-->
+																		<div class="flex-grow-1 mr-2 note-list-item" ng-click="showDetail($index)">
+                                                                            <!--begin::Title-->
+                                                                            <div class="font-weight-bolder mr-2">
+                                                                                <span class="font-weight-bolder font-size-lg mr-2" ng-bind-html="note.title"></span>
+                                                                                <span class="text-muted" ng-bind="note.message"></span>
+                                                                            </div>
+																			<!--end::Title-->
+																			<!--begin::Labels-->
+																			<div class="d-flex align-items-center py-1">
+                                                                                    <span class="label label-light-info font-weight-bold label-inline mr-1">In progress</span>
+                                                                                    <span class="label label-light-success font-weight-bold label-inline">Partnership</span>
+																			</div>
+																			<!--end::Labels-->
+																		</div>
+																		<!--end::Info-->
+																		<!--begin::Details-->
+																		<div class="d-flex align-items-center justify-content-end flex-wrap" data-toggle="view">
+																			<!--begin::Datetime-->
+																			<div class="font-weight-bolder" data-toggle="view">8:30 PM</div>
+																			<!--end::Datetime-->
+																		</div>
+																		<!--end::Details-->
+																	</div>
+																	<!--end::Item-->
+																</div>
+																<!--end::Items-->
+															</div>
+															<!--end::Responsive container-->
+															<!--begin::Pagination-->
+															<div class="d-flex align-items-center my-2 my-6 card-spacer-x justify-content-end">
+																<div class="d-flex align-items-center mr-2" data-toggle="tooltip" title="Records per page">
+																	<span class="text-muted font-weight-bold mr-2" data-toggle="dropdown">1 - 50 of 235</span>
+																	<div class="dropdown-menu dropdown-menu-right p-0 m-0 dropdown-menu-sm">
+																		<ul class="navi py-3">
+																			<li class="navi-item">
+																				<a href="javascript:void(0);" class="navi-link">
+																					<span class="navi-text">20 per page</span>
+																				</a>
+																			</li>
+																			<li class="navi-item">
+																				<a href="javascript:void(0);" class="navi-link active">
+																					<span class="navi-text">50 par page</span>
+																				</a>
+																			</li>
+																			<li class="navi-item">
+																				<a href="javascript:void(0);" class="navi-link">
+																					<span class="navi-text">100 per page</span>
+																				</a>
+																			</li>
+																		</ul>
+																	</div>
+																</div>
+																<span class="btn btn-default btn-icon btn-sm mr-2" data-toggle="tooltip" title="Previose page">
+																	<i class="flaticon2-back icon-sm"></i>
+																</span>
+																<span class="btn btn-default btn-icon btn-sm" data-toggle="tooltip" title="Next page">
+																	<i class="flaticon2-next icon-sm"></i>
+																</span>
+															</div>
+															<!--end::Pagination-->
+														</div>
+														<!--end::Body-->
+													</div>
+													<!--end::Card-->
+												</div>
+												<div class="col-xl-6 pt-10 pt-xl-0" id="note_detail" ng-class="{'hide':!detail.toggle}" >
+
+													<!--begin::Card-->
+													<div class="card card-custom card-stretch" id="kt_todo_view">
+														<div class="offcanvas-close mt-n1 pr-5" style="position: absolute; top:8px; right:-8px;">
+															<a href="javascript:void(0);" ng-click="detail.toggle=false" class="btn btn-xs btn-icon btn-light btn-hover-primary" id="note_detail_close">
+																<i class="flaticon2-cross icon-xs text-muted"></i>
+															</a>
+														</div>
+														
+														<!--begin::Body-->
+														<div class="card-body p-0">
+															<!--begin::Header-->
+															<div class="d-flex align-items-center justify-content-between flex-wrap card-spacer-x py-3">
+																<!--begin::Title-->
+																<div class="d-flex flex-column col-xl-8 mr-2 py-2">
+                                                                    <div class="input-icon input-icon-right ">
+																		<input type="text" class="form-control font-weight-bold form-control-sm font-size-h4 " 
+																			ng-class="{'input-view':!detail.editingTitle, 'input-editing':detail.editingTitle}" 
+																			ng-model="detail.title"
+																			ng-focus="detail.editingTitle=true"
+																			ng-click="$event.stopPropagation();"
+                                                                             />
+                                                                        <span ng-class="{'hide':!detail.editingTitle}">
+                                                                            <i class="fas fa-check icon-xs cursor-pointer" ng-click="saveNoteTitle()"></i>
+                                                                            <i class="fas fa-times icon-xs ml-4 mr-8 cursor-pointer" ng-click="cancelNoteTitle();"></i>
+                                                                        </span>
+                                                                    </div>
+																	<div class="d-flex align-items-center py-1">
+																		<a href="javascript:void(0);" class="d-flex align-items-center text-muted text-hover-primary mr-2">
+																		<span class="fa fa-genderless text-info icon-md mr-2"></span>In progress</a>
+																		<a href="javascript:void(0);" class="d-flex align-items-center text-muted text-hover-primary">
+																		<span class="fa fa-genderless text-success icon-md mr-2"></span>Partnership</a>
+																	</div>
+																	
+																</div>
+																<!--end::Title-->
+																<!--begin::Toolbar-->
+																<div class="d-flex py-2">
+																	<div class="font-weight-bold text-muted mr-2">11:19AM</div>
+																	<div class="d-flex align-items-center" data-inbox="toolbar">
+																		<span class="btn btn-clean btn-xs btn-icon mr-2" data-toggle="tooltip" data-placement="top" title="Star">
+																			<i class="flaticon-star icon-1x text-warning"></i>
+																		</span>
+																		<span class="btn btn-clean btn-xs btn-icon" data-toggle="tooltip" data-placement="top" title="Mark as important">
+																			<i class="flaticon-add-label-button icon-1x"></i>
+																		</span>
+																	</div>
+																</div>
+																<!--end::Toolbar-->
+															</div>
+															<!--end::Header-->
+															<!--begin::Messages-->
+															<div class="mb-3" ng-class="{'hide':!detail.toggle}">
+																<!--begin::Message-->
+																<div class="cursor-pointer ">
+																	<!--begin::Comment-->
+																	<div class="card-spacer-x pt-2 pb-5 ql-snow">
+																		<!--begin::Text-->
+                                                                        <div id="note-view" class="mb-1 ml-4 ql-editor" 
+                                                                            ng-click="detail.editingDesc=true" 
+                                                                            ng-class="{'hide':detail.editingDesc}"
+                                                                            ng-bind-html="detail.selectedNote.message">
+                                                                            
+																		</div>
+																		<!--end::Text-->
+														<!--begin::edit-->
+														<div id="note-edit" class="py-3" ng-class="{'hide':!detail.editingDesc}" >
+                                                            <ng-quill-editor ng-model="detail.message" on-blur="saveNoteMsg(editor, source)" >
+                                                                <ng-quill-toolbar>
+                                                                    <div>
+                                                                        <span class="ql-formats">
+                                                                            <button class="ql-bold" ng-attr-title="{{'Bold'}}"></button>
+                                                                            <button class="ql-italic" ng-attr-title="{{'italic'}}"></button>
+                                                                            <button class="ql-strike" ng-attr-title="{{'strike'}}"></button>
+                                                                            <button class="ql-code-block" ng-attr-title="{{'code-block'}}"></button>
+                                                                        </span>
+                                                                    </div>
+                                                                </ng-quill-toolbar>
+                                                            </ng-quill-editor>
+															<div class="d-flex align-items-center justify-content-between py-2 pl-4 pr-2 border-top">
+																<!--begin::Actions-->
+																<div class="d-flex align-items-center mr-3">
+																	<!--begin::Send-->
+																	<div class="btn-group mr-4">
+																		<span class="btn btn-primary font-weight-bold px-6" id="note-edit-save" ng-click="saveNoteMsg()">Save</span>
+																	</div>
+																	<!--end::Send-->
+																	<!--begin::Other-->
+																	<span class="btn btn-icon btn-sm btn-clean mr-2 dz-clickable" id="note-edit-cancel" ng-click="cancelNoteMsg()">
+																		<i class="flaticon2-cross"></i>
+																	</span>
+																	<!--end::Other-->
+																</div>
+																<!--end::Actions-->
+															</div>
+														</div>
+														<!--end:edit-->
+																	</div>
+																	<!--end::Comment-->
+																</div>
+																<!--end::Message-->
+															</div>
+															<!--end::Messages-->
+														</div>
+														<!--end::Body-->
+													</div>
+													<!--end::Card-->
+												</div>
+											</div>
+											<!--end::Row-->
+										</div>
+									</div>
+									<!--end::List-->
+								</div>
+								<!--end::Todo-->
+							</div>
+							<!--end::Container-->
+
+							<!--begin::Compose-->
+							<div class="modal modal-sticky modal-sticky-lg modal-sticky-bottom-left" ng-class="{'hide':detail.toggle}" id="kt_inbox_compose" data-backdrop="false" aria-modal="true" role="dialog">
+								<div class="modal-dialog" role="document">
+									<div class="modal-content">
+										<!--begin::Form-->
+										<form id="kt_inbox_compose_form">
+											<!--begin::Header-->
+											<div class="d-flex align-items-center justify-content-between py-5 pl-8 pr-5 border-bottom">
+												<h5 class="font-weight-bold m-0">Compose</h5>
+												<div class="d-flex ml-2">
+													<span class="btn btn-clean btn-sm btn-icon mr-2">
+														<i class="flaticon2-arrow-1 icon-1x"></i>
+													</span>
+													<span class="btn btn-clean btn-sm btn-icon" ng-click="detail.toggle=false">
+														<i class="flaticon2-cross icon-1x"></i>
+													</span>
+												</div>
+											</div>
+											<!--end::Header-->
+											<!--begin::Body-->
+											<div class="d-block">
+												<!--begin::Subject-->
+												<div class="border-bottom">
+													<input class="form-control border-0 px-8 min-h-45px" name="compose_subject" placeholder="Label name">
+												</div>
+												<!--end::Subject-->
+												<!--begin::Message-->
+												<div class="m-8 form-group">
+													<label class="font-size-h3 font-weight-bolder text-dark mb-7">Color</label>
+													<div class="radio-inline mb-11">
+														<label class="radio radio-accent radio-danger mr-0">
+															<input type="radio" name="color-selector" checked="checked">
+															<span></span>
+														</label>
+														<label class="radio radio-accent radio-primary mr-0">
+															<input type="radio" name="color-selector">
+															<span></span>
+														</label>
+														<label class="radio radio-accent radio-success mr-0">
+															<input type="radio" name="color-selector">
+															<span></span>
+														</label>
+														<label class="radio radio-accent radio-info mr-0">
+															<input type="radio" name="color-selector">
+															<span></span>
+														</label>
+														<label class="radio radio-accent radio-dark mr-0">
+															<input type="radio" name="color-selector">
+															<span></span>
+														</label>
+														<label class="radio radio-accent radio-secondary mr-0">
+															<input type="radio" name="color-selector">
+															<span></span>
+														</label>
+													</div>
+												</div>
+												<!--end::Message-->
+											</div>
+											<!--end::Body-->
+											<!--begin::Footer-->
+											<div class="d-flex align-items-center justify-content-between py-5 pl-8 pr-5 border-top">
+												<!--begin::Actions-->
+												<div class="d-flex align-items-center mr-3">
+													<!--begin::Send-->
+													<div class="btn-group mr-4">
+														<span class="btn btn-primary font-weight-bold px-6" id="note-edit-save">Save</span>
+													</div>
+													<!--end::Send-->
+												</div>
+												<!--end::Actions-->
+												<!--begin::Toolbar-->
+												<div class="d-flex align-items-center">
+													<span class="btn btn-icon btn-sm btn-clean" data-inbox="dismiss" data-toggle="tooltip" title="" data-original-title="Dismiss reply">
+														<i class="flaticon2-rubbish-bin-delete-button"></i>
+													</span>
+												</div>
+												<!--end::Toolbar-->
+											</div>
+											<!--end::Footer-->
+										</form>
+										<!--end::Form-->
+									</div>
+								</div>
+							</div>
+							<!--end::Compose-->
+						</div>
+						<!--end::Entry-->
