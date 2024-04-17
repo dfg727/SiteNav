@@ -3,7 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>SeekAsia - SiteNav</title>
+    <link rel="icon" href="libs/style/img/nav.png" type="image/png">
+    <title>LanYang - SiteNav</title>
   </head>
   <body>
     <link href="./sharefish/assets/css/style.bundle.min.css" rel="stylesheet">
@@ -38,7 +39,7 @@
                                     
 		<dl class="dlSite" id="dlSite" ng-repeat="category in siteList | filter : {status : '1'}" ng-show="!isLoading">
 			<dt class="dtSite" category>{{category.name}}</dt>
-			<dd class="ddSite" ng-hide="$index!=0" >
+			<dd class="ddSite" ng-show="$index==0 || category.isExpend" >
 				<ul class="divSiteLink">
 					<li class="liSite" ng-repeat="site in category.children | filter : {status : '1'} track by $index"
 						ng-class="{'odd':$index%2==0}">

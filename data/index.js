@@ -1,92 +1,263 @@
-const site_list =  [
-  {
-    "children": [
-      {
-        "children": [],
-        "id": 740,
-        "name": "cnblogs - dfg727",
-        "pId": 71,
+const site_list = [{
+        "children": [{
+                "children": [],
+                "id": 740,
+                "name": "Jenkins",
+                "pId": 71,
+                "status": "1",
+                "uri": "http://121.196.104.20:8888/"
+            }, {
+                "children": [],
+                "id": 750,
+                "name": "禅道",
+                "pId": 71,
+                "status": "1",
+                "uri": "http://121.196.104.20:82/zentao/my.html"
+            }, {
+                "children": [],
+                "id": 760,
+                "name": "墨刀",
+                "pId": 71,
+                "status": "1",
+                "uri": "https://modao.cc/app/74hJLy5Rrrr5yup1qmnKdo#screen=slgoqx8rgk3zg4e"
+            }, {
+                "children": [],
+                "id": 770,
+                "name": "邮箱",
+                "pId": 71,
+                "status": "1",
+                "uri": "http://mail.lanyang.com/"
+            }, {
+                "children": [],
+                "id": 730,
+                "name": "Gitblit",
+                "pId": 71,
+                "status": "1",
+                "uri": "http://192.168.2.198:8808/"
+            }
+        ],
+        "id": 71,
+        "name": "Common Sites",
+        "pId": 0,
         "status": "1",
-        "uri": "http://www.cnblogs.com/dfg727/"
-      },
-      {
-        "children": [],
-        "id": 750,
-        "name": "oschina",
-        "pId": 71,
+        "added": true
+    }, {
+        "children": [{
+                "children": [],
+                "id": 840,
+                "name": "trunklpg",
+                "pId": 81,
+                "status": "1",
+                "uri": "http://localhost:8012/trunklpg/home/default.aspx"
+            }, {
+                "children": [],
+                "id": 841,
+                "name": "trunklpg - 呼叫配送管理系统",
+                "pId": 81,
+                "status": "1",
+                "uri": "http://localhost:8012/trunklpg/SysManage/index.aspx"
+            }, {
+                "children": [],
+                "id": 850,
+                "name": "09WebAPI.WebApi",
+                "pId": 81,
+                "status": "1",
+                "uri": "http://localhost:8012/webapi/swagger"
+            }, {
+                "children": [],
+                "id": 860,
+                "name": "SaaSAPPlpg",
+                "pId": 81,
+                "status": "1",
+                "uri": "http://localhost:8012/saasapplpg"
+            }, {
+                "children": [],
+                "id": 870,
+                "name": "OperationLogs",
+                "pId": 81,
+                "status": "1",
+                "uri": "http://localhost:8012/trunklpg/SaasHTML5/System/OperationLogs.html"
+            }, {
+                "children": [],
+                "id": 880,
+                "name": "IotLpg.Web",
+                "pId": 81,
+                "status": "1",
+                "uri": "http://localhost:8012/IotLpg.Web/index.aspx"
+            }, {
+                "children": [],
+                "id": 880,
+                "name": "IotLpg.Sale.App.Api",
+                "pId": 81,
+                "status": "1",
+                "uri": "http://localhost:8012/iot.sale.app.api/swagger/index.html"
+            }
+			
+        ],
+        "id": 81,
+        "name": "Local Sites",
+        "pId": 0,
         "status": "1",
-        "uri": "http://www.oschina.net/"
-      },
-      {
-        "children": [],
-        "id": 760,
-        "name": "underscore.js",
-        "pId": 71,
+        "isExpend": true,
+        "added": true
+    }, {
+        "children": [{
+                "id": 540,
+                "name": "develop",
+                "pId": 51,
+                "status": "1",
+                "isCollapse": false,
+                "children": [{
+                        "children": [],
+                        "id": 540,
+                        "name": "dev.trunklpg",
+                        "pId": 51,
+                        "status": "1",
+                        "uri": "https://test.117915.com/dev.trunklpg/home/default.aspx"
+                    }, {
+                        "children": [],
+                        "id": 550,
+                        "name": "dev.webapi",
+                        "pId": 51,
+                        "status": "1",
+                        "uri": "https://test.117915.com/dev.webapi/swagger"
+                    }, {
+                        "children": [],
+                        "id": 560,
+                        "name": "dev.saasapplpg",
+                        "pId": 51,
+                        "status": "1",
+                        "uri": "https://test.117915.com/dev.saasapplpg/"
+                    }
+                ]
+            }, {
+                "id": 540,
+                "name": "QA",
+                "pId": 51,
+                "status": "1",
+                "isCollapse": false,
+                "children": [{
+                        "children": [],
+                        "id": 540,
+                        "name": "dev.trunklpg",
+                        "pId": 51,
+                        "status": "1",
+                        "uri": "http://121.196.104.20:8013/dev.trunklpg/home/default.aspx"
+                    }, {
+                        "children": [],
+                        "id": 550,
+                        "name": "dev.webapi",
+                        "pId": 51,
+                        "status": "1",
+                        "uri": "http://121.196.104.20:8013/dev.webapi/swagger"
+                    }, {
+                        "children": [],
+                        "id": 560,
+                        "name": "dev.saasapplpg",
+                        "pId": 51,
+                        "status": "1",
+                        "uri": "http://121.196.104.20:8013/dev.saasapplpg/"
+                    }
+                ]
+            }
+        ],
+        "id": 51,
+        "name": "Dev20 Sites",
+        "pId": 0,
+        "isExpend": true,
+        "status": "1"
+    }, {
+        "children": [{
+                "children": [],
+                "id": 960,
+                "name": "trunklpg",
+                "pId": 91,
+                "status": "1",
+                "uri": "https://lpg.117915.com/testlpg/home/default.aspx"
+            }, {
+                "children": [],
+                "id": 961,
+                "name": "trunklpg.SysManage",
+                "pId": 91,
+                "status": "1",
+                "uri": "https://lpg.117915.com/testlpg/sysmanage/index.aspx"
+            }, {
+                "children": [],
+                "id": 962,
+                "name": "iotlpg",
+                "pId": 91,
+                "status": "1",
+                "uri": "http://iotlpg.117915.com/testclient/Login.aspx"
+            }, {
+                "children": [],
+                "id": 963,
+                "name": "iotlpg.saleapp.api",
+                "pId": 61,
+                "status": "1",
+                "uri": "https://iotlpg.117915.com/iot.weigh.webapi.testsaleapp/swagger/index.html"
+            }, {
+                "children": [],
+                "id": 964,
+                "name": "气瓶安全信息化管理系统",
+                "pId": 91,
+                "status": "1",
+                "uri": "http://www.117915.cn:99/"
+            }
+        ],
+        "id": 91,
+        "name": "Test Sites",
+        "pId": 0,
         "status": "1",
-        "uri": "http://www.css88.com/doc/underscore/"
-      },
-      {
-        "children": [],
-        "id": 770,
-        "name": "lodash.js",
-        "pId": 71,
+        "added": true
+    }, {
+        "children": [{
+                "children": [],
+                "id": 640,
+                "name": "trunklpg",
+                "pId": 61,
+                "status": "1",
+                "uri": "https://lpg.117915.com/lpg/Login.aspx"
+            }, {
+                "children": [],
+                "id": 641,
+                "name": "trunklpg.SysManage",
+                "pId": 61,
+                "status": "1",
+                "uri": "https://lpg.117915.com/lpg/sysmanage/index.aspx"
+            }, {
+                "children": [],
+                "id": 642,
+                "name": "iotlpg",
+                "pId": 61,
+                "status": "1",
+                "uri": "http://iotlpg.117915.com/client/Login.aspx"
+            }, {
+                "children": [],
+                "id": 643,
+                "name": "iotlpg.saleapp.api",
+                "pId": 61,
+                "status": "1",
+                "uri": "https://iotlpg.117915.com/iot.weigh.webapi.saleapp/swagger/index.html"
+            }, {
+                "children": [],
+                "id": 644,
+                "name": "iotlpg.saleapp.api logs",
+                "pId": 61,
+                "status": "1",
+                "uri": "https://iotlpg.117915.com/iot.weigh.webapi.saleapp/sejil"
+            }, {
+                "children": [],
+                "id": 645,
+                "name": "dcc.PublishCompConnChanged",
+                "pId": 61,
+                "status": "1",
+                "uri": "http://iotlpg.117915.com/iot.weigh.dcc/Ajax/DccClient/PublishCompConnChanged.ashx"
+            }
+        ],
+        "id": 61,
+        "name": "Prod Sites",
+        "pId": 0,
         "status": "1",
-        "uri": "https://www.lodashjs.com"
-      },
-      {
-        "children": [],
-        "id": 780,
-        "name": "Bootstrap - china",
-        "pId": 71,
-        "status": "1",
-        "uri": "http://www.bootcss.com/"
-      },
-      {
-        "children": [],
-        "id": 790,
-        "name": "cdnjs",
-        "pId": 71,
-        "status": "1",
-        "uri": "http://www.cdnjs.cn/"
-      },
-      {
-        "children": [],
-        "id": 800,
-        "name": "iconfont",
-        "pId": 71,
-        "status": "1",
-        "uri": "http://www.iconfont.cn/"
-      },
-      {
-        "children": [],
-        "desc": "纯js图表库",
-        "id": 810,
-        "name": "Highcharts",
-        "pId": 71,
-        "status": "1",
-        "uri": "http://www.hcharts.cn/index.php"
-      },
-      {
-        "children": [],
-        "id": 820,
-        "name": "在线 bootstrap 可视化布局",
-        "pId": 71,
-        "status": "1",
-        "uri": "http://www.ibootstrap.cn/"
-      },
-      {
-        "children": [],
-        "id": 830,
-        "name": "bootstrap 表单构造",
-        "pId": 71,
-        "status": "1",
-        "uri": "http://www.bootcss.com/p/bootstrap-form-builder/"
-      }
-    ],
-    "id": 71,
-    "name": "Study Sites",
-    "pId": 0,
-    "status": "1",
-    "added": true
-  }
+        "added": true
+    }
 ]
